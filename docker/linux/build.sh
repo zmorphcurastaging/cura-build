@@ -11,7 +11,7 @@ set -e
 
 # Get where this script resides
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-ROOT_DIR="${SCRIPT_DIR}/../../.."
+ROOT_DIR="${SCRIPT_DIR}/../.."
 
 # Cura release configurations
 CURA_BUILD_ENV_DOCKER_IMAGE="${CURA_BUILD_ENV_DOCKER_IMAGE:-ultimaker/cura-build-environment:centos7-master}"
