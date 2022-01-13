@@ -126,6 +126,7 @@ build_options = {
         "UM",
         "cura",
         "scipy",
+        "scipy.spatial",
         "sip",
         "stl",
         "netifaces",
