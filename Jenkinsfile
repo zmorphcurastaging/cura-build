@@ -4,7 +4,7 @@ pipeline {
     stages {
 
         stage ('Hello') {
-            agent any
+            agent { label 'jworker' }
 
             steps {
                 echo 'Hello, '
