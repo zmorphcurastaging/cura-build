@@ -5,7 +5,9 @@ pipeline {
 
         stage ('Run build') {
             agent { label 'jworker' }
-               docker { image 'ubuntu:latest' }
+                steps {
+                     docker { image 'ubuntu:latest' }
+                 }
         }
     }
 }
