@@ -2,19 +2,14 @@ pipeline {
     agent {
         docker {
             image 'alpine:latest'
-            label 'jworker'
+            label 'master'
             args  '-v /tmp:/tmp'
         }
     }
     stages {
-        stage('01') {
+        stage('run_in_container') {
             steps {
-                sh "echo STAGE01"
-            }
-        }
-        stage('02') {
-            steps {
-                sh "echo STAGE02"
+                sh 'sudo ./docker/linux/build.sh'
             }
         }
     }
