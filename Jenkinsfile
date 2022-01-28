@@ -1,5 +1,5 @@
 pipeline {
-    agent jworker
+    agent none
 
     stages {
 
