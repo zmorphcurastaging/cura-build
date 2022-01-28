@@ -7,7 +7,9 @@ pipeline {
             agent { label 'jworker' }
 
             steps {
-                docker.image("cura-build").inside(){sh 'sudo ./docker/linux/build.sh'}
+                docker.image('alpine:3.7').inside {
+                    sh 'sudo ./docker/linux/build.sh'
+                }
             }
         }
     }
