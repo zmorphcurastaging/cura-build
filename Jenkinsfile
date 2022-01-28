@@ -3,13 +3,14 @@ pipeline {
         docker {
             image 'ubuntu:latest'
             label 'jworker'
-            args  '-v /var/lib/jenkins/workspace/cura-pipeline:/tmp'
+            args  '-v /tmp:/tmp'
         }
     }
     stages {
         stage('run_in_container') {
             steps {
-                sh 'sudo ./docker/linux/build.sh'
+                sh 'git clone https://github.com/zmorph/cura-build.git /tmp'
+                sh 'sudo /tmp/cura-build/docker/linux/build.sh'
             }
         }
     }
