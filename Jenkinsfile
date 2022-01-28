@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'ubuntu:latest'
             label 'jworker'
-            args  '-v /tmp:/tmp'
+            args  '-v /var/lib/jenkins/workspace/cura-pipeline:/tmp'
         }
     }
     stages {
