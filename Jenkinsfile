@@ -1,11 +1,13 @@
 pipeline {
-    agent {
-        docker { image 'ubuntu:latest' }
-    }
+    agent none
+
     stages {
-        stage('Test') {
+
+        stage ('Run build') {
+            agent { label 'jworker' }
+
             steps {
-                sh 'ubuntu --version'
+                docker.image("cura-build").inside(){sh 'sudo ./docker/linux/build.sh'}
             }
         }
     }
