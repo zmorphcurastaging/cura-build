@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'alpine:latest'
+            image 'ubuntu:latest'
             label 'jworker'
             args  '-v /tmp:/tmp'
         }
