@@ -1,13 +1,12 @@
 pipeline {
-    agent none
-
+    agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
     stages {
-
-        stage ('Run build') {
-            agent { label 'jworker' }
-                steps {
-                     docker { image 'node:16.13.1-alpine' }
-                 }
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
         }
     }
 }
