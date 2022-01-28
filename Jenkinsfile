@@ -3,17 +3,11 @@ pipeline {
 
     stages {
 
-        stage ('Hello') {
+        stage ('Run build') {
             agent { label 'jworker' }
 
             steps {
-                echo 'Hello, '
-
-                sh '''#!/bin/bash
-
-                    echo "Hello from bash"
-                    echo "Who I'm $SHELL"
-                '''
+                sh './docker/linux/build.sh'
             }
         }
     }
