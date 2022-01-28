@@ -1,15 +1,20 @@
 pipeline {
-    agent none
-
+    agent {
+        docker {
+            image 'alpine:latest'
+            label 'master'
+            args  '-v /tmp:/tmp'
+        }
+    }
     stages {
-
-        stage ('Run build') {
-            agent { label 'jworker' }
-
+        stage('01') {
             steps {
-                docker.image('alpine:3.7').inside {
-                    sh 'sudo ./docker/linux/build.sh'
-                }
+                sh "echo STAGE01"
+            }
+        }
+        stage('02') {
+            steps {
+                sh "echo STAGE02"
             }
         }
     }
