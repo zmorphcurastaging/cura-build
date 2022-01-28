@@ -7,7 +7,7 @@ pipeline {
             agent { label 'jworker' }
 
             steps {
-                sh './docker/linux/build.sh'
+                sudo sh './docker/linux/build.sh'
             }
         }
     }
