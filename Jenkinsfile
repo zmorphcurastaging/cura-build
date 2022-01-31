@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('run_in_container') {
             steps {
-                sh 'git clone https://github.com/zmorph/cura-build.git /tmp'
+                sh 'git clone https://github.com/zmorph/cura-build.git'
                 sh 'sudo /tmp/cura-build/docker/linux/build.sh'
             }
         }
