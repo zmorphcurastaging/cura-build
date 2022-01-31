@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'ubuntu:latest'
             label 'jworker'
-            args  '-v /tmp:/tmp'
+            //args  '-v /tmp:/tmp'
         }
     }
     stages {
