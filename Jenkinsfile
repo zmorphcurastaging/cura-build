@@ -9,9 +9,11 @@ pipeline {
     stages {
         stage('run_in_container') {
             steps {
-                sh 'apt install git -y'
-                sh 'git clone https://github.com/zmorph/cura-build.git'
-                sh 'sudo docker/linux/build.sh'
+                    sh 'cd /srv'
+                    sh 'mkdir output'
+                //sh 'apt install git -y'
+                //sh 'git clone https://github.com/zmorph/cura-build.git'
+                //sh 'sudo docker/linux/build.sh'
             }
         }
     }
