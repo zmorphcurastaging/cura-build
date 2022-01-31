@@ -4,7 +4,8 @@ pipeline {
         stage ('Run build') {
             agent { label 'jworker' }
             steps {
-                sh 'sudo ./docker/linux/build.sh'
+            sh 'pwd'
+                //sh 'sudo ./docker/linux/build.sh'
             }
         }
     }
