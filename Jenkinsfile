@@ -4,8 +4,9 @@ pipeline {
     environment{
         MY_FILE = fileExists 'output'
     }
-/*
+
     stages {
+/*
         stage ('test') {
             agent { label 'jworker' }
             steps{
