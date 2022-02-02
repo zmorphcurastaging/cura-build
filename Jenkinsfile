@@ -6,14 +6,6 @@ pipeline {
     }
 
     stages {
-/*
-        stage ('test') {
-            agent { label 'jworker' }
-            steps{
-                sh 'ls'
-            }
-        }
-*/
         
         stage ('Clean environment') {            
 
@@ -23,7 +15,7 @@ pipeline {
                 sh 'sudo rm -r output'
             }
         }
-
+/*
         stage('conditional if not exists'){
 
             when { expression { MY_FILE == 'false' } }
@@ -31,7 +23,7 @@ pipeline {
                 echo "file does not exist"
             }
         }
-/*
+
         stage ('Run build') {
             agent { label 'jworker' }
             steps {
