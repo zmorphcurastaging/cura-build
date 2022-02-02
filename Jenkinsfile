@@ -4,7 +4,6 @@ pipeline {
     stages {
         
         stage ('Clean environment') {
-            
             when { expression { return fileExists ('output') } }
             steps {
                 sh 'sudo rm -r output'
