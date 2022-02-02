@@ -19,7 +19,7 @@ pipeline {
 
             steps {
                 sh 'docker stop cura-build'
-                sh 'docekr rm cura-build'
+                sh 'docker rm cura-build'
                 sh 'docker image rm 8b25c9f4b47a'
             }
         }        
