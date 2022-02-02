@@ -1,17 +1,13 @@
 pipeline {
     agent none
 
-    environment{
-    OTUPUT_EXIST = fileExists 'output'
-    }
-    
     stages {
         
         stage ('Clean environment') {
             agent { label 'jworker' }
 
             //check if file otuput exist and delete it if true
-            when { expression { OTUPUT_EXIST == 'true' } }
+            when { expression { return fileExists ('output') } }
             steps {
                 sh 'sudo rm -r output'
             }
