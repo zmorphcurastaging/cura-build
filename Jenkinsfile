@@ -20,7 +20,7 @@ pipeline {
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
-                sh 'cd ./output && ls'
+                sh 'sudo rm -r output'
             }
         }
 
