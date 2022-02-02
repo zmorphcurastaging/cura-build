@@ -6,15 +6,11 @@ pipeline {
         stage ('Clean environment') {
             agent { label 'jworker' }
 
+            when { expression { return fileExists ('output') } }
             steps {
-                //check if file otuput exist and delete it if true
-                if (fileExists('file')) {
-                    sh 'sudo rm -r output'
-                }
-                sh 'docker stop cura-build'
-                sh 'docker rm cura-build'
-                sh 'docker image rm 8b25c9f4b47a'
+                sh 'sudo rm -r output'
             }
+
         }
 
         stage ('Run build') {
