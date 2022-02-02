@@ -20,11 +20,11 @@ pipeline {
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
+                sh 'ls output'
             }
         }
 
         stage('conditional if not exists'){
-            //agent { label 'jworker' }
 
             when { expression { MY_FILE == 'false' } }
             steps {
