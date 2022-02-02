@@ -5,10 +5,9 @@ pipeline {
         stage ('Clean environment') {
             agent { label 'jworker' }
             steps {
-                sh 'if [[ -d output ]] \
-                    then \
-                    sudo rm -r output \
-                    fi'
+                if (sh '-d output') {
+                    sh 'sudo rm -r output'
+                }
                 sh 'docker stop cura-build'
                 sh 'docker rm cura-build'
                 sh 'docker image rm 8b25c9f4b47a'
