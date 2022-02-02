@@ -16,17 +16,17 @@ pipeline {
                 sh 'sudo rm -r ./output'
             }
         }
-/*
+
         stage ('Clean environment docker') {            
 
-            when { expression { old_containers == 'false' } }
+            when { expression { old_containers != 'CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES' } }
             steps {
                 sh 'docker stop cura-build'
                 sh 'docker rm cura-build'
                 sh 'docker image rm 8b25c9f4b47a'
             }
         }    
-*/
+
         stage ('Run build') {
             steps {
                 echo "running build"
