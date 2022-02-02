@@ -6,7 +6,10 @@ pipeline {
     }
 */
     stages {
+        stage (test) {
         sh 'ls'
+        }
+        
         /*
         stage ('Clean environment') {
             when { expression { MY_FILE == 'true' } }
