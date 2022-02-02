@@ -4,10 +4,16 @@ pipeline {
     stages {
         
         stage ('Clean environment') {
-            when { expression { return fileExists ('output') } }
+            //when { expression { return fileExists ('output') } }
             steps {
+                dir("output")
+                if(!fileExists("/"))
+                {
+                  //bat "mkdir \"C:/_Tests\""
+                  echo "file exist"
+                }
                 //sh 'sudo rm -r ./output'
-                echo "file exist"
+                //echo "file exist"
             }
 
         }
