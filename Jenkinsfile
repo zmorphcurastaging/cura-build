@@ -7,7 +7,9 @@ pipeline {
 */
     stages {
         stage ('test') {
-        sh 'ls'
+            steps{
+                sh 'ls'
+            }
         }
 
         /*
