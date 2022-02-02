@@ -7,7 +7,7 @@ pipeline {
             //when { expression { return fileExists ('output') } }
             steps {
                 dir("output")
-                if(!fileExists("/"))
+                if(!fileExists("./output"))
                 {
                   //bat "mkdir \"C:/_Tests\""
                   echo "file exist"
