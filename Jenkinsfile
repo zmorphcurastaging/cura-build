@@ -4,8 +4,7 @@ pipeline {
     stages {
         
         stage ('Clean environment') {
-            agent { label 'jworker' }
-
+            
             when { expression { return fileExists ('output') } }
             steps {
                 sh 'sudo rm -r output'
