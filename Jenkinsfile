@@ -21,9 +21,12 @@ pipeline {
 
             when { expression { old_containers != 'CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES' } }
             steps {
+                echo old_containers
+                /*
                 sh 'docker stop cura-build'
                 sh 'docker rm cura-build'
                 sh 'docker image rm 8b25c9f4b47a'
+                */
             }
         }    
 
