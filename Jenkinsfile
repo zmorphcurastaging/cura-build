@@ -3,8 +3,8 @@ pipeline {
 
     environment{
         old_files = fileExists './output'
-        old_containers = sh 'docker ps -a'
-        //def old_containers = sh returnStdout: true, script: 'docker ps -a |grep "cura-build"'  | grep "cura-build"
+        old_containers = sh 'docker ps -a  | grep "cura-build"'
+        //def old_containers = sh returnStdout: true, script: 'docker ps -a |grep "cura-build"'
     }
 
     stages {
@@ -21,12 +21,9 @@ pipeline {
 
             when { expression { old_containers != 'null' } }
             steps {
-                echo old_containers
-                /*
                 sh 'docker stop cura-build'
                 sh 'docker rm cura-build'
                 sh 'docker image rm 8b25c9f4b47a'
-                */
             }
         }    
 
