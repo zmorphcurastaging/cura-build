@@ -4,7 +4,7 @@ pipeline {
     environment{
         old_files = fileExists './output'
         //old_containers = sh 'docker ps -a |grep "cura-build"'
-        def output = sh returnStdout: true, script: 'docker ps -a |grep "cura-build"'
+        def old_containers = sh returnStdout: true, script: 'docker ps -a |grep "cura-build"'
     }
 
     stages {
