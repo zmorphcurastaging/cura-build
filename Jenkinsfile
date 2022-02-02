@@ -1,29 +1,33 @@
 pipeline {
     agent none
-
+/*
+    environment{
+        MY_FILE = fileExists './'
+    }
+*/
     stages {
-        
+        sh 'ls'
+        /*
         stage ('Clean environment') {
-            //when { expression { return fileExists ('output') } }
+            when { expression { MY_FILE == 'true' } }
             steps {
-                dir("output")
-                if(!fileExists("./output"))
-                {
-                  //bat "mkdir \"C:/_Tests\""
-                  echo "file exist"
-                }
-                //sh 'sudo rm -r ./output'
-                //echo "file exist"
+                echo "file exists"
             }
-
         }
 
-        //stage ('Run build') {
-        //    agent { label 'jworker' }
-        //    steps {
-        //        sh 'sudo ./docker/linux/build.sh'
-        //    }
-        //}
+        stage('conditional if not exists'){
+            when { expression { MY_FILE == 'false' } }
+            steps {
+                echo "file does not exist"
+            }
+        }
 
+        stage ('Run build') {
+            agent { label 'jworker' }
+            steps {
+                sh 'sudo ./docker/linux/build.sh'
+            }
+        }
+*/
     }
 }
