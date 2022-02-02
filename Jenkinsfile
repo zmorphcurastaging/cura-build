@@ -16,7 +16,7 @@ pipeline {
                 sh 'sudo rm -r ./output'
             }
         }
-
+/*
         stage ('Clean environment docker') {            
 
             when { expression { old_containers == 'false' } }
@@ -26,7 +26,7 @@ pipeline {
                 sh 'docker image rm 8b25c9f4b47a'
             }
         }    
-
+*/
         stage ('Run build') {
             steps {
                 echo "running build"
