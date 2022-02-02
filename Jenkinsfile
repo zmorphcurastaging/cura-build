@@ -2,34 +2,33 @@ pipeline {
     agent { label 'jworker' }
 
     environment{
-        MY_FILE = fileExists './output'
+        old_files = fileExists './output'
     }
 
     stages {
         
-        stage ('Clean environment') {            
+        stage ('Clean environment files') {            
 
-            when { expression { MY_FILE == 'true' } }
+            when { expression { old_files == 'true' } }
             steps {
-                echo "file exists"
                 sh 'sudo rm -r output'
             }
         }
-/*
-        stage('conditional if not exists'){
 
-            when { expression { MY_FILE == 'false' } }
+        stage ('Clean environment docker') {            
+
             steps {
-                echo "file does not exist"
+                sh 'docker stop cura-build'
+                sh 'docekr rm cura-build'
+                sh 'docker image rm 8b25c9f4b47a'
             }
-        }
+        }        
 
         stage ('Run build') {
-            agent { label 'jworker' }
             steps {
                 sh 'sudo ./docker/linux/build.sh'
             }
         }
-*/
+
     }
 }
