@@ -16,6 +16,7 @@ pipeline {
 */
         
         stage ('Clean environment') {
+            agent { label 'jworker' }            
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
@@ -23,6 +24,7 @@ pipeline {
         }
 
         stage('conditional if not exists'){
+            agent { label 'jworker' }            
             when { expression { MY_FILE == 'false' } }
             steps {
                 echo "file does not exist"
