@@ -5,7 +5,7 @@ pipeline {
         stage ('Clean environment') {
             agent { label 'jworker' }
             steps {
-                sh 'rm -r output'
+                sh 'sudo rm -r output'
             }
         }
 
