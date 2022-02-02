@@ -1,8 +1,10 @@
 pipeline {
     agent none
+
     environment{
     OTUPUT_EXIST = fileExists 'output'
     }
+    
     stages {
         
         stage ('Clean environment') {
@@ -13,7 +15,7 @@ pipeline {
             steps {
                 sh 'sudo rm -r output'
             }
-            
+
             steps {
                 sh 'docker stop cura-build'
                 sh 'docker rm cura-build'
@@ -29,3 +31,4 @@ pipeline {
         }
 
     }
+}
