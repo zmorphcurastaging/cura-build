@@ -6,17 +6,18 @@ pipeline {
         stage ('Clean environment') {
             when { expression { return fileExists ('./output') } }
             steps {
-                sh 'sudo rm -r ./output'
+                //sh 'sudo rm -r ./output'
+                echo "file exist"
             }
 
         }
 
-        stage ('Run build') {
-            agent { label 'jworker' }
-            steps {
-                sh 'sudo ./docker/linux/build.sh'
-            }
-        }
+        //stage ('Run build') {
+        //    agent { label 'jworker' }
+        //    steps {
+        //        sh 'sudo ./docker/linux/build.sh'
+        //    }
+        //}
 
     }
 }
