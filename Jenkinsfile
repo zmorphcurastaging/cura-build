@@ -1,10 +1,10 @@
 pipeline {
     agent none
-/*
+
     environment{
-        MY_FILE = fileExists './'
+        MY_FILE = fileExists 'output'
     }
-*/
+/*
     stages {
         stage ('test') {
             agent { label 'jworker' }
@@ -12,8 +12,8 @@ pipeline {
                 sh 'ls'
             }
         }
-
-        /*
+*/
+        
         stage ('Clean environment') {
             when { expression { MY_FILE == 'true' } }
             steps {
@@ -27,7 +27,7 @@ pipeline {
                 echo "file does not exist"
             }
         }
-
+/*
         stage ('Run build') {
             agent { label 'jworker' }
             steps {
