@@ -19,7 +19,7 @@ pipeline {
 
         stage ('Clean environment docker') {            
 
-            when { expression { old_containers != 'CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES' } }
+            when { expression { old_containers != 'null' } }
             steps {
                 echo old_containers
                 /*
