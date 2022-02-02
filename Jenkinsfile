@@ -2,7 +2,7 @@ pipeline {
     agent none
 
     environment{
-        MY_FILE = fileExists 'output'
+        MY_FILE = fileExists './output'
     }
 
     stages {
