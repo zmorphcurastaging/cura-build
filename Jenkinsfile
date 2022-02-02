@@ -7,6 +7,7 @@ pipeline {
 */
     stages {
         stage ('test') {
+            agent { label 'jworker' }
             steps{
                 sh 'ls'
             }
