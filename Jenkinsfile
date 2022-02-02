@@ -26,19 +26,19 @@ pipeline {
                 sh 'docker image rm 8b25c9f4b47a'
             }
         }    
-
+/*
         stage ('Run build') {
             steps {
                 echo "running build"
                 //sh 'sudo ./docker/linux/build.sh'
             }
         }    
-/*
+*/
         stage ('Run build') {
             steps {
                 sh 'sudo ./docker/linux/build.sh'
             }
         }
-*/
+
     }
 }
