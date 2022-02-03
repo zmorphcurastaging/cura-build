@@ -3,7 +3,7 @@ pipeline {
 
     environment{
         old_files = fileExists './output'
-        old_containers = sh (script: 'docker ps -a', , returnStdout:true).trim()
+        old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
     }
 
     stages {
@@ -19,7 +19,7 @@ pipeline {
 
         stage ('Clean environment docker') {            
 
-            when { expression { old_containers ==~ / \benvironment\b/ } }
+            when { expression { old_containers == "2" } }
             steps {
                 sh 'docker stop cura-build-environment'
                 sh 'docker rm cura-build-environment'
