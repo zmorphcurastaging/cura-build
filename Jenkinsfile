@@ -4,7 +4,6 @@ pipeline {
     environment{
         old_files = fileExists './output'
         old_containers = sh (script: 'docker ps -a', , returnStdout:true).trim()
-        echo old_containers
     }
 
     stages {
@@ -13,7 +12,8 @@ pipeline {
 
             when { expression { old_files == 'true' } }
             steps {
-                sh 'sudo rm -r ./output'
+                //sh 'sudo rm -r ./output'
+                echo old_containers
             }
         }
 
