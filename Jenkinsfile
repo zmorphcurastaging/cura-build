@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jworker' }
+    agent any
 
     environment{
         old_files = fileExists './output'
