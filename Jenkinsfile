@@ -13,7 +13,6 @@ pipeline {
             when { expression { old_files == 'true' } }
             steps {
                 sh 'sudo rm -r ./output'
-                echo old_containers
             }
         }
 
