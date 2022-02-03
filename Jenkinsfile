@@ -37,8 +37,8 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit 'build/reports/**/*.xml'
+            archiveArtifacts artifacts: 'remoting/jarCache/**/*.jar', fingerprint: true
+            junit 'output/build/package/usr/bin/lib/test/xmltestdata/c14n-20/*.xml'
         }
     }
 }
