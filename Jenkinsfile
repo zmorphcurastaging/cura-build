@@ -18,7 +18,7 @@ pipeline {
 
         stage ('Clean environment docker') {            
 
-            when { expression { old_containers ==~ \bcura-build-environment\b } }
+            when { expression { old_containers ==~ /\bcura-build-environment\b/ } }
             steps {
                 echo old_containers
                 sh 'docker stop cura-build-environment'
