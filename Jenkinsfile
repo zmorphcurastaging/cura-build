@@ -20,8 +20,8 @@ pipeline {
 
             when { expression { old_containers != 'null' } }
             steps {
-                sh 'docker stop cura-build'
-                sh 'docker rm cura-build'
+                sh 'docker stop cura-build-environment'
+                sh 'docker rm cura-build-environment'
                 sh 'docker image rm 8b25c9f4b47a'
             }
         }    
