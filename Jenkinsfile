@@ -13,7 +13,6 @@ pipeline {
             when { expression { old_files == 'true' } }
             steps {
                 sh 'sudo rm -r ./output'
-                echo old_containers
             }
         }
 
@@ -21,6 +20,7 @@ pipeline {
 
             when { expression { old_containers != 'null' } }
             steps {
+                echo old_containers
                 sh 'docker stop cura-build-environment'
                 sh 'docker rm cura-build-environment'
                 sh 'docker image rm 8b25c9f4b47a'
