@@ -37,7 +37,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'output/build/package/usr/bin/lib/test/xmltestdata/c14n-20/*.xml', fingerprint: true
+            archiveArtifacts artifacts: 'output/build/', fingerprint: true
             //junit 'output/build/package/usr/bin/lib/test/xmltestdata/c14n-20/*.xml'
         }
     }
