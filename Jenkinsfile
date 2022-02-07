@@ -30,6 +30,7 @@ pipeline {
         stage ('Run build') {
             steps {
                 sh 'sudo ./docker/linux/build.sh'
+                sh 'gpg sign ./output/appimages/Ultimaker_Cura-*.AppImage'
             }
         }
 
