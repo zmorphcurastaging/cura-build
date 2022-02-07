@@ -77,7 +77,7 @@ docker run \
   ${DOCKER_EXTRA_ARGS} \
   --user $(id -u):$(id -g) \
   --volume "$(pwd)":/home/ultimaker/src \
-  --volume /root/docker_run:/root \
+  --volume /root/.gnupg/:/root/.gnupg/ \
   --name cura-build-environment \
   --env CURA_BUILD_OUTPUT_DIR=/home/ultimaker/src/output \
   --env CURA_BRANCH_OR_TAG="${CURA_BRANCH_OR_TAG}" \
