@@ -30,8 +30,6 @@ pipeline {
         stage ('Run build') {
             steps {
                 sh 'sudo ./docker/linux/build.sh'
-                sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
-                sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
             }
         }
 
