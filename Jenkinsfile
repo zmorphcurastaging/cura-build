@@ -39,8 +39,8 @@ pipeline {
                     appname = sh(script: 'ls ./output/appimages/ |grep AppImage', returnStdout: true );
                 }
                 
-                sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
-                sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
+                //sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
+                //sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
                 sh 'sudo sha1sum ${appname} > ${appname}.sha1'
             }
         }
