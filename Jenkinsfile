@@ -35,8 +35,10 @@ pipeline {
 */
         stage ('Signing') {
             steps {
-                sh 'cd output/appimages/'
-                sh 'pwd'
+
+                dir("${env.WORKSPACE}/output/appimages/"){
+                    sh "pwd"
+                }
                 script {
                     APPNAME = sh(script: 'ls', returnStdout: true );
                 }
