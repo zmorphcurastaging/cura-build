@@ -44,7 +44,7 @@ pipeline {
 */
                 sh 'sudo chown -R jenkins:jenkins output'
                     script {
-                        APPNAME = sh(script: 'ls ./output/appimages', returnStdout: true );
+                        APPNAME = sh(script: 'ls output/appimages', returnStdout: true );
                     }
                   sh "echo ${APPNAME}"
                   sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
