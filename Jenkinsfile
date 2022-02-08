@@ -47,7 +47,7 @@ pipeline {
                         APPNAME = sh(script: 'ls output/appimages', returnStdout: true );
                     }
                   sh "echo ${APPNAME}"
-                  sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
+                  sh "sudo sha1sum output/appimages/${APPNAME} > output/appimages/${APPNAME}.sha1"
             }
         }
 
