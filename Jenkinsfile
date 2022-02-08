@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        
+/*        
         stage ('Clean environment files') {            
 
             when { expression { old_files == 'true' } }
@@ -32,7 +32,7 @@ pipeline {
                 sh 'sudo ./docker/linux/build.sh'
             }
         }
-
+*/
         stage ('Signing') {
             steps {
                 def appname = sh(script: 'ls ./output/appimages/ |grep AppImage', returnStdout: true)
