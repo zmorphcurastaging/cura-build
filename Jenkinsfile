@@ -35,13 +35,14 @@ pipeline {
 */
         stage ('Signing') {
             steps {
+                sh "cd output/appimages"
                 script {
-                    APPNAME = sh(script: 'ls ./output/appimages/', returnStdout: true );
+                    APPNAME = sh(script: 'ls', returnStdout: true );
                 }
                 //sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
                 //sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
                 //sh'APPNAME=$(ls ./output/appimages/)'
-                sh "sudo sha1sum ./output/appimages/${APPNAME} > ./output/appimages/${APPNAME}.sha1"
+                sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
             }
         }
 
