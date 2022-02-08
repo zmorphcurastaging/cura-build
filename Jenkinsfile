@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-/*        
+        
         stage ('Clean environment files') {            
 
             when { expression { old_files == 'true' } }
@@ -32,22 +32,11 @@ pipeline {
                 sh 'sudo ./docker/linux/build.sh'
             }
         }
-*/
+
         stage ('Signing') {
             steps {
-/*
-                sh "pwd"
-                dir('${env.WORKSPACE}/output/appimages') {
-                  sh "pwd"
-                }
-                sh "pwd"
-*/
-                sh 'sudo chown -R jenkins:jenkins output'
-                    script {
-                        APPNAME = sh(script: 'ls output/appimages', returnStdout: true );
-                    }
-                  sh "echo ${APPNAME}"
-                  sh "sudo sha1sum ./output/appimages/${APPNAME} > ./output/appimages/${APPNAME}.sha1"
+                sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
+                sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
             }
         }
 
