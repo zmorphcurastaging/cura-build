@@ -39,9 +39,10 @@ pipeline {
                 script {
                     APPNAME = sh(script: 'ls', returnStdout: true );
                 }
+                sh "echo ${APPNAME}"
+                sh "pwd"
                 //sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
                 //sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
-                //sh'APPNAME=$(ls ./output/appimages/)'
                 sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
             }
         }
