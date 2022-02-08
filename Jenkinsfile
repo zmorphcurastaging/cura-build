@@ -37,16 +37,16 @@ pipeline {
             steps {
 
                 dir("${env.WORKSPACE}/output/appimages/"){
-                    sh "pwd"
+
+                    script {
+                        APPNAME = sh(script: 'ls', returnStdout: true );
+                    }
+
+                    sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
                 }
-                script {
-                    APPNAME = sh(script: 'ls', returnStdout: true );
-                }
+
                 sh "echo ${APPNAME}"
 
-                //sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
-                //sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
-                sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
             }
         }
 
