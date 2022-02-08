@@ -38,7 +38,7 @@ pipeline {
                 sh 'APPNAME=$(ls ./output/appimages/ |grep AppImage)'
                 sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
                 sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
-                sh 'sudo sha1sum Ultimaker_Cura-*.AppImage > $APPNAME.sha1'
+                sh 'sudo sha1sum $APPNAME > $APPNAME.sha1'
             }
         }
 
