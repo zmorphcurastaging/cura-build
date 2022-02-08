@@ -36,7 +36,7 @@ pipeline {
         stage ('Signing') {
             steps {
                 script {
-                    APPNAME = sh(script: 'grep ./output/appimages/AppImage', returnStdout: true );
+                    APPNAME = sh(script: 'ls ./output/appimages/', returnStdout: true );
                 }
                 
                 //sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
