@@ -35,18 +35,19 @@ pipeline {
 */
         stage ('Signing') {
             steps {
-
-
+/*
                 sh "pwd"
-                dir('/output/appimages') {
+                dir('${env.WORKSPACE}/output/appimages') {
                   sh "pwd"
                 }
                 sh "pwd"
-                //    script {
-                //        APPNAME = sh(script: 'ls ./output/appimages', returnStdout: true );
-                //    }
-                //  sh "echo ${APPNAME}"
-                //  sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
+*/
+                sh 'sudo chown -R jenkins:jenkins output'
+                    script {
+                        APPNAME = sh(script: 'ls ./output/appimages', returnStdout: true );
+                    }
+                  sh "echo ${APPNAME}"
+                  sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
             }
         }
 
