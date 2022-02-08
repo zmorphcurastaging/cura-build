@@ -37,7 +37,7 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'private_gpg', variable: 'GPG_PRIVATE_KEY')]) {
     
-                    sh 'gpg --batch --import $GPG_PRIVATE_KEY'
+                    sh 'sudo gpg --batch --import $GPG_PRIVATE_KEY'
                     sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
                     sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
                     sh 'sudo ./signing/sha1sum_gen.sh'
