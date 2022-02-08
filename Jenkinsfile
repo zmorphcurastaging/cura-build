@@ -35,7 +35,7 @@ pipeline {
 */
         stage ('Signing') {
             steps {
-                sh "cd output/appimages"
+                sh "cd ./output/appimages/"
                 script {
                     APPNAME = sh(script: 'ls', returnStdout: true );
                 }
