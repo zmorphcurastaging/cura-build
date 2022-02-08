@@ -38,7 +38,7 @@ pipeline {
 
 
                 sh "pwd"
-                dir('${env.WORKSPACE}/output/appimages') {
+                dir('output/appimages') {
                   sh "pwd"
                 }
                 sh "pwd"
