@@ -35,18 +35,22 @@ pipeline {
 
         stage ('Signing') {
             steps {
-                sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
-                sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
+                withCredentials([file(credentialsId: 'private_gpg', variable: 'GPG_PRIVATE_KEY')]) {
+    
+                    sh 'gpg --import $GPG_PRIVATE_KEY'
+                    sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
+                    sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
+                    sh 'sudo ./signing/sha1sum_gen.sh'
+                }
             }
         }
 
     }
-    /*
+    
     post {
         always {
-            archiveArtifacts artifacts: 'output/build/', fingerprint: true
-            //junit 'output/build/package/usr/bin/lib/test/xmltestdata/c14n-20/*.xml'
+            archiveArtifacts artifacts: 'output/appimages/', fingerprint: true
         }
     }
-    */
+
 }
