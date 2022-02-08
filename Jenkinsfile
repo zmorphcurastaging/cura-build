@@ -36,10 +36,16 @@ pipeline {
         stage ('Signing') {
             steps {
 
-                    script {
-                        APPNAME = sh(script: 'ls ./output/appimages', returnStdout: true );
-                    }
-                    sh "echo ${APPNAME}"
+
+                sh "pwd"
+                dir('./output/appimages') {
+                  sh "pwd"
+                }
+                sh "pwd"
+                //    script {
+                //        APPNAME = sh(script: 'ls ./output/appimages', returnStdout: true );
+                //    }
+                //    sh "echo ${APPNAME}"
                     //sh "sudo sha1sum ${APPNAME} > ${APPNAME}.sha1"
             }
         }
