@@ -12,7 +12,7 @@ param (
   [string]$FdmMaterialsBranchOrTag = "master",
   [string]$LibCharonBranchOrTag = "master",
 
-# VARIABLES TO TEST ONLY
+# VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
     [int32]$CuraVersionMajor,
     [int32]$CuraVersionMinor,
     [int32]$CuraVersionPatch,
@@ -25,8 +25,7 @@ param (
     [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
     [string]$CuraWindowsInstallerType = "EXE",
-
-# VARIABLES TO TEST ONLY
+# VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
 <#
 # Cura release parameters
   [Parameter(Mandatory=$true)]
