@@ -5,7 +5,7 @@ pipeline {
         old_files = fileExists './output'
         old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
     }
-/*
+
     stages {
         
         stage ('Clean environment files') {            
@@ -32,7 +32,7 @@ pipeline {
                 sh 'sudo ./docker/linux/build.sh'
             }
         }
-*/
+
         stage ('Signing') {
             steps {
                 withCredentials([file(credentialsId: 'private_gpg', variable: 'GPG_PRIVATE_KEY')]) {
