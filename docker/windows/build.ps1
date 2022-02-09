@@ -12,6 +12,22 @@ param (
   [string]$FdmMaterialsBranchOrTag = "master",
   [string]$LibCharonBranchOrTag = "master",
 
+# VARIABLES TO TEST ONLY
+    [int32]$CuraVersionMajor,
+    [int32]$CuraVersionMinor,
+    [int32]$CuraVersionPatch,
+  [string]$CuraVersionExtra = "",
+  [string]$CuraBuildType = "",
+  [string]$NoInstallPlugins = "",
+    [string]$CloudApiRoot = "https://api.ultimaker.com",
+    [string]$CloudAccountApiRoot = "https://account.ultimaker.com",
+    [int32]$CloudApiVersion = 1,
+    [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
+    [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
+    [string]$CuraWindowsInstallerType = "EXE",
+
+# VARIABLES TO TEST ONLY
+<#
 # Cura release parameters
   [Parameter(Mandatory=$true)]
     [int32]$CuraVersionMajor,
@@ -35,11 +51,12 @@ param (
   [Parameter(Mandatory=$true)]
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
 
-  [boolean]$EnableDebugMode = $true,
-  [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
-
   [Parameter(Mandatory=$true)]
     [string]$CuraWindowsInstallerType = "EXE",
+#>
+
+  [boolean]$EnableDebugMode = $true,
+  [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
 
   [string]$CuraMsiProductGuid = "",
   [string]$CuraMsiUpgradeGuid = "",
