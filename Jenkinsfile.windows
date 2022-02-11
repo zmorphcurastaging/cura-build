@@ -5,7 +5,7 @@ pipeline {
         
         stage ('run bash') {            
             steps {
-                winpty powershell './docker/windows/build.ps1 -someArg $env:someArg'
+                winpty powershell './docker/windows/build.ps1'
                 // /powershell './docker/windows/build.ps1 -someArg $env:someArg'
             }
         }
