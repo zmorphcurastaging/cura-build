@@ -1,11 +1,11 @@
 pipeline {
-    agent {label: WS2019_1809}
+    agent {label 'WS2019_1809'}
 
     stages {
         
         stage ('Clean environment files') {            
             steps {
-                powershell returnStatus: true, script: '.\docker\windows\build.ps1'
+                powershell returnStatus: true, script: '.\\docker\\windows\\build.ps1'
             }
         }
    
