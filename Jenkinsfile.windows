@@ -5,7 +5,8 @@ pipeline {
         
         stage ('run bash') {            
             steps {
-                bat './docker/windows/build.ps1'
+                powershell 'echo "do testu"'
+                //bat 'powershell ./docker/windows/build.ps1'
                 // /powershell './docker/windows/build.ps1 -someArg $env:someArg'
             }
         }
