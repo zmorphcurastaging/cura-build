@@ -117,33 +117,4 @@ if ($BindSshVolume) {
   $dockerExtraArgs.Add("${sshPath}:C:\Users\ContainerAdministrator\.ssh")
 }
 
-& docker.exe --% run $dockerExtraArgs `
-  --rm `
-  --volume ${repoRoot}:C:\cura-build-src `
-  --volume ${outputRoot}:C:\cura-build-output `
-  --env CURA_BUILD_SRC_PATH=C:\cura-build-src `
-  --env CURA_BUILD_OUTPUT_PATH=C:\cura-build-output `
-  --env CURA_BRANCH_OR_TAG=$CuraBranchOrTag `
-  --env URANIUM_BRANCH_OR_TAG=$UraniumBranchOrTag `
-  --env CURAENGINE_BRANCH_OR_TAG=$CuraEngineBranchOrTag `
-  --env CURABINARYDATA_BRANCH_OR_TAG=$CuraBinaryDataBranchOrTag `
-  --env FDMMATERIALS_BRANCH_OR_TAG=$FdmMaterialsBranchOrTag `
-  --env LIBCHARON_BRANCH_OR_TAG=$LibCharonBranchOrTag `
-  --env CURA_VERSION_MAJOR=$CuraVersionMajor `
-  --env CURA_VERSION_MINOR=$CuraVersionMinor `
-  --env CURA_VERSION_PATCH=$CuraVersionPatch `
-  --env CURA_VERSION_EXTRA=$CuraVersionExtra `
-  --env CURA_BUILD_TYPE=$CuraBuildType `
-  --env CURA_NO_INSTALL_PLUGINS=$NoInstallPlugins `
-  --env CURA_CLOUD_API_ROOT=$CuraCloudApiRoot `
-  --env CURA_CLOUD_API_VERSION=$CuraCloudApiVersion `
-  --env CURA_CLOUD_ACCOUNT_API_ROOT=$CuraCloudAccountApiRoot `
-  --env CURA_MARKETPLACE_ROOT=$MarketplaceRoot `
-  --env CURA_DIGITAL_FACTORY_URL=$DigitalFactoryURL `
-  --env CURA_DEBUG_MODE=$CURA_DEBUG_MODE `
-  --env CURAENGINE_ENABLE_MORE_COMPILER_OPTIMIZATION_FLAGS=$CURAENGINE_ENABLE_MORE_COMPILER_OPTIMIZATION_FLAGS `
-  --env CPACK_GENERATOR=$CPACK_GENERATOR `
-  --env CURA_MSI_PRODUCT_GUID=$CuraMsiProductGuid `
-  --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
-  $DockerImage `
-  powershell.exe -Command cmd /c "C:\cura-build-src\scripts\python3.8\windows\build_in_docker_vs2015.cmd"
+& docker.exe run $dockerExtraArgs --rm --volume ${repoRoot}:C:\cura-build-src --volume ${outputRoot}:C:\cura-build-output --env CURA_BUILD_SRC_PATH=C:\cura-build-src --env CURA_BUILD_OUTPUT_PATH=C:\cura-build-output --env CURA_BRANCH_OR_TAG=$CuraBranchOrTag --env URANIUM_BRANCH_OR_TAG=$UraniumBranchOrTag --env CURAENGINE_BRANCH_OR_TAG=$CuraEngineBranchOrTag --env CURABINARYDATA_BRANCH_OR_TAG=$CuraBinaryDataBranchOrTag --env FDMMATERIALS_BRANCH_OR_TAG=$FdmMaterialsBranchOrTag --env LIBCHARON_BRANCH_OR_TAG=$LibCharonBranchOrTag --env CURA_VERSION_MAJOR=$CuraVersionMajor --env CURA_VERSION_MINOR=$CuraVersionMinor --env CURA_VERSION_PATCH=$CuraVersionPatch --env CURA_VERSION_EXTRA=$CuraVersionExtra --env CURA_BUILD_TYPE=$CuraBuildType --env CURA_NO_INSTALL_PLUGINS=$NoInstallPlugins --env CURA_CLOUD_API_ROOT=$CuraCloudApiRoot --env CURA_CLOUD_API_VERSION=$CuraCloudApiVersion --env CURA_CLOUD_ACCOUNT_API_ROOT=$CuraCloudAccountApiRoot --env CURA_MARKETPLACE_ROOT=$MarketplaceRoot --env CURA_DIGITAL_FACTORY_URL=$DigitalFactoryURL --env CURA_DEBUG_MODE=$CURA_DEBUG_MODE --env CURAENGINE_ENABLE_MORE_COMPILER_OPTIMIZATION_FLAGS=$CURAENGINE_ENABLE_MORE_COMPILER_OPTIMIZATION_FLAGS --env CPACK_GENERATOR=$CPACK_GENERATOR --env CURA_MSI_PRODUCT_GUID=$CuraMsiProductGuid --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid $DockerImage powershell.exe -Command cmd /c "C:\cura-build-src\scripts\python3.8\windows\build_in_docker_vs2015.cmd"
