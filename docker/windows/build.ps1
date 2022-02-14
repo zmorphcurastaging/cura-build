@@ -13,9 +13,9 @@ param (
   [string]$LibCharonBranchOrTag = "master",
 
 # VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
-    [int32]$CuraVersionMajor,
-    [int32]$CuraVersionMinor,
-    [int32]$CuraVersionPatch,
+    [int32]$CuraVersionMajor = 0,
+    [int32]$CuraVersionMinor = 0,
+    [int32]$CuraVersionPatch = 0,
   [string]$CuraVersionExtra = "",
   [string]$CuraBuildType = "",
   [string]$NoInstallPlugins = "",
@@ -117,7 +117,7 @@ if ($BindSshVolume) {
   $dockerExtraArgs.Add("${sshPath}:C:\Users\ContainerAdministrator\.ssh")
 }
 
-& docker run $dockerExtraArgs `
+& docker.exe run $dockerExtraArgs `
   --rm `
   --volume ${repoRoot}:C:\cura-build-src `
   --volume ${outputRoot}:C:\cura-build-output `
