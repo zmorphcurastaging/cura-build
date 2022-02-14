@@ -5,7 +5,7 @@ pipeline {
         
         stage ('run bash') {            
             steps {
-                Invoke-command -FilePath "./docker/windows/build.ps1"
+                Invoke-command -FilePath "docker/windows/build.ps1"
                 //bat 'powershell "./docker/windows/build.ps1"'
                 //bat 'powershell ./docker/windows/build.ps1'
                 // /powershell './docker/windows/build.ps1 -someArg $env:someArg'
