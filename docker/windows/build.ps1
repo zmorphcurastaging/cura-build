@@ -146,4 +146,4 @@ if ($BindSshVolume) {
   --env CURA_MSI_PRODUCT_GUID=$CuraMsiProductGuid `
   --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
   $DockerImage `
-  powershell.exe -Command cmd /c "C:\cura-build-src\docker\windows\build_in_docker_vs2019.cmd"
+  powershell.exe -Command cmd /c "C:\cura-build-src\cura-build\docker\windows\build_in_docker_vs2019.cmd"
