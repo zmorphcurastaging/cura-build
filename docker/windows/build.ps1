@@ -13,9 +13,9 @@ param (
   [string]$LibCharonBranchOrTag = "master",
 
 # VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
-    [int32]$CuraVersionMajor = 0,
-    [int32]$CuraVersionMinor = 0,
-    [int32]$CuraVersionPatch = 0,
+    [int32]$CuraVersionMajor = 4,
+    [int32]$CuraVersionMinor = 13,
+    [int32]$CuraVersionPatch = 99,
   [string]$CuraVersionExtra = "",
   [string]$CuraBuildType = "",
   [string]$NoInstallPlugins = "",
