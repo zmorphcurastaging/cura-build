@@ -104,7 +104,7 @@ else {
 
 $dockerExtraArgs = New-Object Collections.Generic.List[String]
 if ($IsInteractive) {
-  $dockerExtraArgs.Add("-t")
+  $dockerExtraArgs.Add("-it")
 }
 
 if ($BindSshVolume) {
