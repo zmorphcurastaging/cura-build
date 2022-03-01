@@ -2,7 +2,7 @@
 
 param (
 # Docker parameters
-  [string]$DockerImage = "soniqsoft/cura-build-environment-ws2019r",
+  [string]$DockerImage = "soniqsoft/cura-build-environment-ws2019",
 # Branch parameters
   [string]$CuraBranchOrTag = "master",
   [string]$UraniumBranchOrTag = "master",
