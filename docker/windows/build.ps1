@@ -60,7 +60,7 @@ param (
   [string]$CuraMsiProductGuid = "",
   [string]$CuraMsiUpgradeGuid = "",
 
-  [boolean]$IsInteractive = $true,
+  [boolean]$IsInteractive = $false,
   [boolean]$BindSshVolume = $false
 )
 
