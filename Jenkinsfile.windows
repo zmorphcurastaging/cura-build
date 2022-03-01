@@ -1,13 +1,11 @@
 pipeline {
-    agent {label 'WS2019_1809'}
+    agent any
 
     stages {
         
         stage ('run bash') {            
             steps {
                 bat 'powershell "./docker/windows/build.ps1"'
-                //bat 'powershell ./docker/windows/build.ps1'
-                // /powershell './docker/windows/build.ps1 -someArg $env:someArg'
             }
         }
    
