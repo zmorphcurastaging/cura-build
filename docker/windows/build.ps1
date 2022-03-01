@@ -3,7 +3,6 @@
 param (
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-master",
-
 # Branch parameters
   [string]$CuraBranchOrTag = "master",
   [string]$UraniumBranchOrTag = "master",
@@ -117,7 +116,7 @@ if ($BindSshVolume) {
   $dockerExtraArgs.Add("${sshPath}:C:\Users\ContainerAdministrator\.ssh")
 }
 
-& docker run $dockerExtraArgs `
+& docker.exe run $dockerExtraArgs `
   --rm `
   --volume ${repoRoot}:C:\cura-build-src `
   --volume ${outputRoot}:C:\cura-build-output `
