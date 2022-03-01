@@ -2,7 +2,8 @@
 
 param (
 # Docker parameters
-  [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
+  #[string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
+  [string]$DockerImage = "docker pull soniqsoft/cura-build-environment:centos7-master",
 # Branch parameters
   [string]$CuraBranchOrTag = "master",
   [string]$UraniumBranchOrTag = "master",
