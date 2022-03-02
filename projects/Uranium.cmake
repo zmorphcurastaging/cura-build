@@ -13,7 +13,7 @@ find_package(SciPy 1.2.0 REQUIRED)
 string(REPLACE ";" "," _cura_no_install_plugins "${CURA_NO_INSTALL_PLUGINS}")
 
 ExternalProject_Add(Uranium
-    GIT_REPOSITORY https://github.com/Ultimaker/Uranium
+    GIT_REPOSITORY https://github.com/zmorph/Uranium
     GIT_TAG origin/${URANIUM_BRANCH_OR_TAG}
     GIT_SHALLOW 1
     STEP_TARGETS update
