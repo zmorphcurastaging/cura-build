@@ -2,7 +2,7 @@ pipeline {
     agent {label 'WS2019'}
 
     environment{
-        old_files = fileExists './windows-installers/build'
+        old_files = fileExists './docker/windows/windows-installers'
         //old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
     }
 
