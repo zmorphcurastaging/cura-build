@@ -63,7 +63,8 @@ param (
   [boolean]$BindSshVolume = $false
 )
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "SilentlyContinue"
+$WarningPreference = "SilentlyContinue"
 
 $outputDirName = "windows-installers"
 $buildOutputDirName = "build"
