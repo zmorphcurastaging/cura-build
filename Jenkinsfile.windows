@@ -2,7 +2,7 @@ pipeline {
     agent {label 'WS2019'}
 
     environment{
-        old_files = fileExists './docker/windows/windows-installers'
+        old_files = fileExists './windows-installers'
         //old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
     }
 
@@ -12,17 +12,13 @@ pipeline {
 
             when { expression { old_files == 'true' } }
             steps {
-                bat 'powershell "rm -r -fo ./docker/windows/windows-installers"'
+                bat 'powershell "rm -r -fo ./windows-installers"'
             }
         }
 
         stage ('run bash') {            
             steps {
-                dir('./docker/windows') {
-                    bat 'powershell "./build.ps1"'
-                }
-                //bat 'powershell " cd ./docker/windows"'
-                //bat 'powershell "./build.ps1"'
+                    bat 'powershell "./docker/windows/build.ps1"'
             }
         }
    
