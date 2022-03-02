@@ -18,7 +18,7 @@ pipeline {
 
         stage ('run bash') {            
             steps {
-                dir('/docker/windows') {
+                dir('./docker/windows') {
                     bat 'powershell "./build.ps1"'
                 }
                 //bat 'powershell " cd ./docker/windows"'
