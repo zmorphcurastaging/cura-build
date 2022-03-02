@@ -54,7 +54,7 @@ param (
 #>
 
   [boolean]$EnableDebugMode = $true,
-  [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
+  [boolean]$EnableCuraEngineExtraOptimizationFlags = $false,
 
   [string]$CuraMsiProductGuid = "",
   [string]$CuraMsiUpgradeGuid = "",
