@@ -18,7 +18,7 @@ pipeline {
 
         stage ('run bash') {            
             steps {
-                    bat 'powershell -WarningAction:SilentlyContinue "./docker/windows/build.ps1"'
+                    bat 'powershell "./docker/windows/build.ps1"'
             }
         }
    
