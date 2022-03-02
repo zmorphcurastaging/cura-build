@@ -12,7 +12,7 @@ pipeline {
 
             when { expression { old_files == 'true' } }
             steps {
-                bat 'powershell "rm -r -fo .\windows-installers\build\"'
+                bat 'powershell "rm -r -fo ./windows-installers/build"'
             }
         }
 
