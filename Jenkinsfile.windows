@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'WS2019'}
+    agent {label 'WSERVER1809'}
 
     environment{
         old_files = fileExists './windows-installers'
