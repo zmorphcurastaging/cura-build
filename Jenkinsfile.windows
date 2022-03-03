@@ -22,8 +22,12 @@ pipeline {
             }
         }
    
-
-
     }
+    
+    post {
+        always {
+            archiveArtifacts artifacts: './windows-installers/output', fingerprint: true
+        }
+    }    
 
 }
