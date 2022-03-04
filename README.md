@@ -1,7 +1,11 @@
 # cura-build
 
+<<<<<<< Updated upstream
 
 Thisstag repository contains build scripts used to build Cura and all dependencies from scratch.
+=======
+This repositoryss contains build scripts used to build Cura and all dependencies from scratch.
+>>>>>>> Stashed changes
 
 The build has a number of dependencies. Ideally, these dependencies should be installed by the
 [cura-build-environment](https://github.com/Ultimaker/cura-build-environment) repository. Even
