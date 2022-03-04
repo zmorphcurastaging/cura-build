@@ -2,8 +2,7 @@
 
 param (
 # Docker parameters
-  [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
-
+  [string]$DockerImage = "soniqsoft/cura-build-environment:win1809-latest",
 # Branch parameters
   [string]$CuraBranchOrTag = "master",
   [string]$UraniumBranchOrTag = "master",
@@ -12,6 +11,21 @@ param (
   [string]$FdmMaterialsBranchOrTag = "master",
   [string]$LibCharonBranchOrTag = "master",
 
+# VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
+    [int32]$CuraVersionMajor = 4,
+    [int32]$CuraVersionMinor = 13,
+    [int32]$CuraVersionPatch = 99,
+  [string]$CuraVersionExtra = "",
+  [string]$CuraBuildType = "",
+  [string]$NoInstallPlugins = "",
+    [string]$CloudApiRoot = "https://api.ultimaker.com",
+    [string]$CloudAccountApiRoot = "https://account.ultimaker.com",
+    [int32]$CloudApiVersion = 1,
+    [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
+    [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
+    [string]$CuraWindowsInstallerType = "EXE",
+# VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
+<#
 # Cura release parameters
   [Parameter(Mandatory=$true)]
     [int32]$CuraVersionMajor,
@@ -35,26 +49,28 @@ param (
   [Parameter(Mandatory=$true)]
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
 
-  [boolean]$EnableDebugMode = $true,
-  [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
-
   [Parameter(Mandatory=$true)]
     [string]$CuraWindowsInstallerType = "EXE",
+#>
+
+  [boolean]$EnableDebugMode = $true,
+  [boolean]$EnableCuraEngineExtraOptimizationFlags = $false,
 
   [string]$CuraMsiProductGuid = "",
   [string]$CuraMsiUpgradeGuid = "",
 
-  [boolean]$IsInteractive = $true,
+  [boolean]$IsInteractive = $false,
   [boolean]$BindSshVolume = $false
 )
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
+$WarningPreference = "SilentlyContinue"
 
 $outputDirName = "windows-installers"
 $buildOutputDirName = "build"
 
 New-Item $outputDirName -ItemType "directory" -Force
-$repoRoot = Join-Path $PSScriptRoot -ChildPath "..\..\.." -Resolve
+$repoRoot = Join-Path $PSScriptRoot -ChildPath "..\.." -Resolve
 $outputRoot = Join-Path (Get-Location).Path -ChildPath $outputDirName -Resolve
 
 $CURA_DEBUG_MODE = "OFF"
@@ -130,4 +146,4 @@ if ($BindSshVolume) {
   --env CURA_MSI_PRODUCT_GUID=$CuraMsiProductGuid `
   --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
   $DockerImage `
-  powershell.exe -Command cmd /c "C:\cura-build-src\scripts\python3.8\windows\build_in_docker_vs2015.cmd"
+  powershell.exe -Command cmd /c "C:\cura-build-src\docker\windows\build_in_docker_vs2019.cmd"

@@ -1,0 +1,55 @@
+pipeline {
+    agent {label 'workerlinux'}
+
+    environment{
+        old_files = fileExists './output'
+        old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
+    }
+
+    stages {
+        
+        stage ('Clean environment files') {            
+
+            when { expression { old_files == 'true' } }
+            steps {
+                sh 'sudo rm -r ./output'
+            }
+        }
+
+        stage ('Clean environment docker') {            
+
+            when { expression { old_containers == "2" } }
+            steps {
+                sh 'docker stop cura-build-environment'
+                sh 'docker rm cura-build-environment'
+                sh 'docker image rm 8b25c9f4b47a'
+            }
+        }    
+
+        stage ('Run build') {
+            steps {
+                sh 'sudo ./docker/linux/build.sh'
+            }
+        }
+
+        stage ('Signing') {
+            steps {
+                withCredentials([file(credentialsId: 'private_gpg', variable: 'GPG_PRIVATE_KEY')]) {
+    
+                    sh 'sudo gpg --batch --import $GPG_PRIVATE_KEY'
+                    sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
+                    sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
+                    sh 'sudo ./signing/sha1sum_gen.sh'
+                }
+            }
+        }
+
+    }
+    
+    post {
+        always {
+            archiveArtifacts artifacts: 'output/appimages/', fingerprint: true
+        }
+    }
+
+}

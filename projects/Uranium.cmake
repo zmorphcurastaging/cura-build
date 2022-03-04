@@ -23,7 +23,7 @@ endif()
 string(REPLACE ";" "," _cura_no_install_plugins "${CURA_NO_INSTALL_PLUGINS}")
 
 ExternalProject_Add(Uranium
-    GIT_REPOSITORY https://github.com/ultimaker/Uranium
+    GIT_REPOSITORY https://github.com/zmorph/Uranium
     GIT_TAG origin/${URANIUM_BRANCH_OR_TAG}
     GIT_SHALLOW 1
     STEP_TARGETS update

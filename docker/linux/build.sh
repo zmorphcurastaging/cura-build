@@ -11,10 +11,10 @@ set -e
 
 # Get where this script resides
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-ROOT_DIR="${SCRIPT_DIR}/../../.."
+ROOT_DIR="${SCRIPT_DIR}/../.."
 
 # Cura release configurations
-CURA_BUILD_ENV_DOCKER_IMAGE="${CURA_BUILD_ENV_DOCKER_IMAGE:-ultimaker/cura-build-environment:centos7-master}"
+CURA_BUILD_ENV_DOCKER_IMAGE="${CURA_BUILD_ENV_DOCKER_IMAGE:-soniqsoft/cura-build-environment:centos7-master}"
 
 CURA_BRANCH_OR_TAG="${CURA_BRANCH_OR_TAG:-master}"
 URANIUM_BRANCH_OR_TAG="${URANIUM_BRANCH_OR_TAG:-master}"
@@ -77,6 +77,8 @@ docker run \
   ${DOCKER_EXTRA_ARGS} \
   --user $(id -u):$(id -g) \
   --volume "$(pwd)":/home/ultimaker/src \
+  --volume /root/.gnupg/:/root/.gnupg/ \
+  --name cura-build-environment \
   --env CURA_BUILD_OUTPUT_DIR=/home/ultimaker/src/output \
   --env CURA_BRANCH_OR_TAG="${CURA_BRANCH_OR_TAG}" \
   --env URANIUM_BRANCH_OR_TAG="${URANIUM_BRANCH_OR_TAG}" \
