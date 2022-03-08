@@ -16,9 +16,17 @@ pipeline {
             }
         }
 
-        stage ('run bash') {            
+        stage ('Run build') {            
             steps {
                     bat 'powershell "./docker/windows/build.ps1"'
+            }
+        }
+    
+        stage ('Signing') {            
+            steps {
+                withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
+                    bat 'powershell "signtool sign  /fd SHA256 /a /f $CERTIFICATE_WINDOWS .\windows-installers\output\Ultimaker_Cura*.exe"'
+                }
             }
         }
    
