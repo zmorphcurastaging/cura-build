@@ -44,8 +44,9 @@ if(EXISTS ${WINDOWS_IDENTITIY_PFX_FILE})
 
     # Signing the installer
     add_custom_target(signing-installer) # Sadly "TARGET package POST_BUILD" can't be used in the following add_custom_command()
-    set(CURA_INSTALLER_NAME ${CPACK_PACKAGE_FILE_NAME}.exe)
-    
+    # Add static name for testing
+    #set(CURA_INSTALLER_NAME ${CPACK_PACKAGE_FILE_NAME}.exe)
+    set(CURA_INSTALLER_NAME "Ultimaker_Cura-4.13.99-amd64.exe")              
     add_custom_command(
         TARGET signing-installer
         COMMAND ${SIGNTOOL_EXECUTABLE} sign ${signtool_OPTIONS} ${CURA_INSTALLER_NAME}
