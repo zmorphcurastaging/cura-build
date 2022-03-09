@@ -1,1 +1,1 @@
-Write-Host "$certificate"
+Write-Output "$certificate"
