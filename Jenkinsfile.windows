@@ -8,19 +8,19 @@ pipeline {
 
     stages {
         
-//        stage ('Clean environment files') {            
-//
-//            when { expression { old_files == 'true' } }
-//            steps {
-//                bat 'powershell "rm -r -fo ./windows-installers"'
-//            }
-//        }
+        stage ('Clean environment files') {            
 
-//        stage ('Run build') {            
-//            steps {
-//                    bat 'powershell "./docker/windows/build.ps1"'
-//            }
-//        }
+            when { expression { old_files == 'true' } }
+            steps {
+                bat 'powershell "rm -r -fo ./windows-installers"'
+            }
+        }
+
+        stage ('Run build') {            
+            steps {
+                    bat 'powershell "./docker/windows/build.ps1"'
+            }
+        }
     
         stage ('Signing') {            
             steps {
@@ -32,10 +32,10 @@ pipeline {
    
     }
     
-//    post {
-//        always {
-//            archiveArtifacts artifacts: 'windows-installers/output/', fingerprint: true
-//        }
-//    }    
+    post {
+        always {
+            archiveArtifacts artifacts: 'windows-installers/output/', fingerprint: true
+        }
+    }    
 
 }
