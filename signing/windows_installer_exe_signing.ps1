@@ -1,2 +1,2 @@
-param ($servername)
+param ($certificate)
 Write-Output "$certificate"
