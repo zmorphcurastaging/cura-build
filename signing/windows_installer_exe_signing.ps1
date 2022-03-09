@@ -1,2 +1,2 @@
-Param( $BuildNumber )
+Param( [string]$CERTIFICATE_WINDOWS )
 echo $CERTIFICATE_WINDOWS
