@@ -1,2 +1,2 @@
-Param( [string]$certificate="$env:CERTIFICATE_WINDOWS" )
+$certificate=$args[0]
 echo $certificate
