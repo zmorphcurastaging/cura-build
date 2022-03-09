@@ -25,7 +25,7 @@ pipeline {
         stage ('Signing') {            
             steps {
                 withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
-                    powershell 'C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\signtool.exe sign  /fd SHA256 /a /f $CERTIFICATE_WINDOWS ./windows-installers/output/Ultimaker_Cura*.exe'
+                    powershell 'C:/Program Files/Microsoft SDKs/Windows/v7.1/Bin/signtool.exe sign  /fd SHA256 /a /f $CERTIFICATE_WINDOWS ./windows-installers/output/Ultimaker_Cura*.exe'
                     //bat 'powershell "signtool.exe sign  /fd SHA256 /a /f $CERTIFICATE_WINDOWS ./windows-installers/output/Ultimaker_Cura*.exe"'
                 }
             }
