@@ -1,1 +1,1 @@
-echo $certificate
+Write-Host "$certificate"
