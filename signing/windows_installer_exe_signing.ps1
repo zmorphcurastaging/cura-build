@@ -1,2 +1,2 @@
-Param( [string]$CERTIFICATE_WINDOWS="${CERTIFICATE_WINDOWS}" )
-echo $CERTIFICATE_WINDOWS
+Param( [string]$certificate="$env:CERTIFICATE_WINDOWS" )
+echo $certificate
