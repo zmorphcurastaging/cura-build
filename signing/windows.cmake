@@ -41,7 +41,6 @@ if(EXISTS ${WINDOWS_IDENTITIY_PFX_FILE})
 
     # Signing the installer
     add_custom_target(signing-installer) # Sadly "TARGET package POST_BUILD" can't be used in the following add_custom_command()
-    # Add static name for testing
     set(CURA_INSTALLER_NAME ${CPACK_PACKAGE_FILE_NAME}.exe)             
     add_custom_command(
         TARGET signing-installer
