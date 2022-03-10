@@ -24,7 +24,8 @@ param (
     [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
     [string]$CuraWindowsInstallerType = "EXE",
-    [string]$PFXfile = "C:\cura-build-src\docker\windows\certificate.pfx",
+    [string]$PFXfile = $args[0]
+#    [string]$PFXfile = "C:\cura-build-src\docker\windows\certificate.pfx",
 # VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
 <#
 # Cura release parameters
