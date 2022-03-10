@@ -1,4 +1,3 @@
-/*
 pipeline {
     agent {label 'WSERVER1809'}
 
@@ -21,7 +20,7 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
                     writeFile(file: 'docker/windows/certificate.pfx', text: readFile(CERTIFICATE_WINDOWS))
-                    //bat 'powershell "$CERTIFICATE_WINDOWS | Out-File -Force -filepath ./docker/windows/certificate.pfx"'
+                    bat 'powershell "Copy-Item %CERTIFICATE_WINDOWS% -Destination ./docker/windows/certificate.pfx"'
                     bat 'powershell "./docker/windows/build.ps1"'
                 }
             }
@@ -43,30 +42,5 @@ pipeline {
             archiveArtifacts artifacts: 'windows-installers/output/', fingerprint: true
         }
     }    
-
-}
-*/
-pipeline {
-    agent {label 'WSERVER1809'}
-
-    environment{
-        old_files = fileExists './windows-installers'
-        //old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
-    }
-
-    stages {
-
-        stage ('Run build') {            
-            
-            steps {
-                withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
-                    writeFile(file: 'docker/windows/certificate.pfx', text: readFile(CERTIFICATE_WINDOWS))
-                    bat 'powershell "signtool sign  /fd SHA256 /a /f %CERTIFICATE_WINDOWS% ./docker/windows/build.ps1"'
-                }
-            }
-
-        }  
-
-    }
 
 }
