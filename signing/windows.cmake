@@ -17,7 +17,6 @@ set(signtool_OPTIONS /fd SHA256 /a /f ${WINDOWS_IDENTITIY_PFX_FILE})
 
 if(EXISTS ${WINDOWS_IDENTITIY_PFX_FILE})
     message(STATUS "Signing executables with: " ${WINDOWS_IDENTITIY_PFX_FILE})
-    message( ${CPACK_PACKAGE_FILE_NAME} )
     if(${WINDOWS_IDENTITIY_PFX_PASSWORD})
         message(WARNING "USE WITH CAUTION: Password for the PFX file has been set!")
     endif()
