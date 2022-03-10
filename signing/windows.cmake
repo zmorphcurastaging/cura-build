@@ -5,9 +5,7 @@
 
 find_package(Signtool REQUIRED)
 
-#set(WINDOWS_IDENTITIY_PFX_FILE "THE_PFX_FILE_IS_MISSING_HERE!" CACHE STRING "PFX file, which represents the identity of the developer.")
 set(WINDOWS_IDENTITIY_PFX_PASSWORD "" CACHE STRING "")
-
 set(signtool_OPTIONS /fd SHA256 /a /f ${WINDOWS_IDENTITIY_PFX_FILE})
 
 #if(NOT ${WINDOWS_IDENTITIY_PFX_PASSWORD} EQUAL "")
@@ -45,8 +43,7 @@ if(EXISTS ${WINDOWS_IDENTITIY_PFX_FILE})
     # Signing the installer
     add_custom_target(signing-installer) # Sadly "TARGET package POST_BUILD" can't be used in the following add_custom_command()
     # Add static name for testing
-    #set(CURA_INSTALLER_NAME ${CPACK_PACKAGE_FILE_NAME}.exe)
-    set(CURA_INSTALLER_NAME "Ultimaker_Cura-4.13.99-amd64.exe")              
+    set(CURA_INSTALLER_NAME ${CPACK_PACKAGE_FILE_NAME}.exe)             
     add_custom_command(
         TARGET signing-installer
         COMMAND ${SIGNTOOL_EXECUTABLE} sign ${signtool_OPTIONS} ${CURA_INSTALLER_NAME}
