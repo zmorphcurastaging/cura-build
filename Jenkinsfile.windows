@@ -19,7 +19,7 @@ pipeline {
         stage ('Run build') {            
             steps {
                 withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
-                    bat 'powershell "%CERTIFICATE_WINDOWS% | Out-File ./docker/windows/certificate.pfx"'
+                    bat 'powershell "$CERTIFICATE_WINDOWS | Out-File ./docker/windows/certificate.pfx"'
                     bat 'powershell "./docker/windows/build.ps1"'
                 }
             }
