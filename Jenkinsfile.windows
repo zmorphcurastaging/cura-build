@@ -19,9 +19,9 @@ pipeline {
         stage ('Run build') {            
             steps {
                 withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
-                    writeFile(file: 'docker/windows/certificate.pfx', text: readFile(CERTIFICATE_WINDOWS))
                     bat 'powershell "Copy-Item %CERTIFICATE_WINDOWS% -Destination ./docker/windows/certificate.pfx"'
                     bat 'powershell "./docker/windows/build.ps1"'
+                    bat 'powershell "Remove-Item ./docker/windows/certificate.pfx"'
                 }
             }
         }

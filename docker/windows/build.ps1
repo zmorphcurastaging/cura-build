@@ -1,7 +1,6 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
 
 param (
-#  [string]$PFXfile = $args[0],
 # Docker parameters
   [string]$DockerImage = "soniqsoft/cura-build-environment:win1809-latest",
 # Branch parameters
@@ -118,7 +117,6 @@ if ($BindSshVolume) {
   $dockerExtraArgs.Add("--volume")
   $dockerExtraArgs.Add("${sshPath}:C:\Users\ContainerAdministrator\.ssh")
 }
-Write-Output $PFXfile
 & docker.exe run $dockerExtraArgs `
   --rm `
   --volume ${repoRoot}:C:\cura-build-src `
