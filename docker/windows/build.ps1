@@ -118,7 +118,7 @@ if ($BindSshVolume) {
   $dockerExtraArgs.Add("--volume")
   $dockerExtraArgs.Add("${sshPath}:C:\Users\ContainerAdministrator\.ssh")
 }
-
+Write-Output $PFXfile
 & docker.exe run $dockerExtraArgs `
   --rm `
   --volume ${repoRoot}:C:\cura-build-src `
