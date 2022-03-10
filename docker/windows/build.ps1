@@ -24,6 +24,7 @@ param (
     [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
     [string]$CuraWindowsInstallerType = "EXE",
+    [string]$PFXfile = "C:\cura-build-src\docker\windows\certificate.pfx",
 # VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
 <#
 # Cura release parameters
@@ -116,7 +117,6 @@ if ($BindSshVolume) {
   $dockerExtraArgs.Add("--volume")
   $dockerExtraArgs.Add("${sshPath}:C:\Users\ContainerAdministrator\.ssh")
 }
-
 & docker.exe run $dockerExtraArgs `
   --rm `
   --volume ${repoRoot}:C:\cura-build-src `
@@ -145,5 +145,6 @@ if ($BindSshVolume) {
   --env CPACK_GENERATOR=$CPACK_GENERATOR `
   --env CURA_MSI_PRODUCT_GUID=$CuraMsiProductGuid `
   --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
+  --env WINDOWS_IDENTITIY_PFX_FILE=$PFXfile `
   $DockerImage `
   powershell.exe -Command cmd /c "C:\cura-build-src\docker\windows\build_in_docker_vs2019.cmd"
