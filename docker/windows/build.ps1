@@ -1,7 +1,7 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
 
 param (
-  [string]$PFXfile = $args[0],
+#  [string]$PFXfile = $args[0],
 # Docker parameters
   [string]$DockerImage = "soniqsoft/cura-build-environment:win1809-latest",
 # Branch parameters
@@ -25,7 +25,7 @@ param (
     [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
     [string]$CuraWindowsInstallerType = "EXE",
-#    [string]$PFXfile = "C:\cura-build-src\docker\windows\certificate.pfx",
+    [string]$PFXfile = "C:\cura-build-src\docker\windows\certificate.pfx",
 # VARIABLES TO TEST ONLY, in production delete this section and uncoment section below
 <#
 # Cura release parameters
