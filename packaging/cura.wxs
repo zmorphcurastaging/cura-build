@@ -45,7 +45,7 @@
         <!-- For installing VC runtime redistribution -->
         <DirectoryRef Id="TARGETDIR">
             <Merge Id="VC_Redist64"
-                   SourceFile="${CMAKE_SOURCE_DIR}/packaging/Microsoft_VC140_CRT_x64.msm"
+                   SourceFile="C:/cura-build-src/packaging/Microsoft_VC140_CRT_x64.msm"
                    DiskId="1" Language="1033" />
         </DirectoryRef>
         <FeatureRef Id="ProductFeature">
