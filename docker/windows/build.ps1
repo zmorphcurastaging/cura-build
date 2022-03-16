@@ -57,8 +57,8 @@ param (
   [boolean]$EnableDebugMode = $true,
   [boolean]$EnableCuraEngineExtraOptimizationFlags = $false,
 
-  [string]$CuraMsiProductGuid = "",
-  [string]$CuraMsiUpgradeGuid = "",
+  [string]$CuraMsiProductGuid = "76d2b1f8-b19e-4e4c-9e35-f86fd105b899",
+  [string]$CuraMsiUpgradeGuid = "e752a0b4-7be3-4536-99c8-5a1f9119cb0c",
 
   [boolean]$IsInteractive = $false,
   [boolean]$BindSshVolume = $false
