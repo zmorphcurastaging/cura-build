@@ -5,11 +5,7 @@ pipeline {
         
         stage ('Run build') {
             steps {
-                cd cura-build
-                mkdir build
-                cd build
-                cmake ..
-                make package
+                ls
             }
         }
 
