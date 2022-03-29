@@ -1,0 +1,19 @@
+pipeline {
+    agent {label 'osx'}
+
+    stages {
+        
+        stage ('Run build') {
+            steps {
+                cd cura-build
+                mkdir build
+                cd build
+                cmake ..
+                make package
+            }
+        }
+
+    }
+    
+
+}
