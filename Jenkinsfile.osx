@@ -6,6 +6,10 @@ pipeline {
         stage ('Run build') {
             steps {
                 sh 'ls'
+                sh 'mkdir build'
+                sh 'cd build'
+                sh 'cmake ..'
+                sh 'make package'
             }
         }
 
