@@ -1,8 +1,20 @@
 pipeline {
     agent {label 'osx'}
 
+    environment{
+        old_files = fileExists './build'
+    }
+
     stages {
         
+        stage ('Clean environment files') {            
+
+            when { expression { old_files == 'true' } }
+            steps {
+                sh 'sudo rm -rf ./build'
+            }
+        }
+
         stage ('Run build') {
             steps {
                 sh 'ls'
