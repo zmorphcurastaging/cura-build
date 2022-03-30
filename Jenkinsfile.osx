@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh 'mkdir build'
                 sh 'cd build'
-                bash 'sudo cmake ..'
+                sh 'sudo cmake ..'
                 sh 'make package'
             }
         }
