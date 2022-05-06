@@ -6,9 +6,11 @@ pipeline {
         old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
     }
 
-    script {
+    stages {
+        stage ('Clean environment files') { 
     def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
     echo ${BRANCH}
+        }
     }
 /*
     stages {
