@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('Clean environment files') { 
             steps {
-                    sh 'printenv'
+                    echo env.BRANCH_NAME
             }
         }
     }
