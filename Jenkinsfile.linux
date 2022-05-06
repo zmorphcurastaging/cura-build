@@ -10,7 +10,7 @@ pipeline {
         stage ('Clean environment files') { 
             steps {
                 def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
-                echo ${BRANCH}
+                echo "${BRANCH}"
             }
         }
     }
