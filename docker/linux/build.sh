@@ -13,7 +13,7 @@ if [ $1 == 'master' ]; then
   BRANCH_NAME=latest
 else
   SPLIT=$1
-  arrSPLIT=(${SPLIT//;/ })
+  arrSPLIT=(${SPLIT//./ })
   CURA_VERSION_MAJOR=${arrSPLIT[0]} 
   CURA_VERSION_MINOR=${arrSPLIT[1]}
 fi
