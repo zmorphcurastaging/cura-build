@@ -4,13 +4,13 @@ pipeline {
     environment{
         old_files = fileExists './output'
         old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
-        //def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+        BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
     }
 
     stages {
         stage ('Clean environment files') { 
             steps {
-                    echo env.BRANCH_NAME
+                    echo BRANCH_NAME
             }
         }
     }
