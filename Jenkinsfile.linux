@@ -10,10 +10,9 @@ pipeline {
     stages {
         stage ('Clean environment files') { 
             steps {
-                        scmInfo = checkout scm
-                        /*...*/
-                        echo "scm : ${scmInfo}"
-                        echo "${scmInfo.GIT_COMMIT}"
+                    sh 'git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
+                    git_branch = readFile('GIT_BRANCH').trim()
+                    echo git_branch
             }
         }
     }
