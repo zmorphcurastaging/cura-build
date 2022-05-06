@@ -7,6 +7,8 @@
 # the AppImage being created will not be signed.
 #
 
+set -e
+
 # if branch name is diffrent than master, splitting numbers and set version and tag numbers
 BRANCH=$1
 if [ $BRANCH == 'master' ]; then
@@ -28,8 +30,6 @@ else
   LIBCHARON_BRANCH_OR_TAG=$BRANCH
   
 fi
-
-set -e
 
 # Get where this script resides
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
