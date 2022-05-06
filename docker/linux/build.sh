@@ -10,12 +10,12 @@
 # for testing purposes only (delete on prod)
 echo $1
 if [ $1 == 'master' ]; then
-  BRANCH_NAME = latest
+  BRANCH_NAME=latest
 else
   SPLIT=$1
   arrSPLIT=(${SPLIT//;/ })
-  CURA_VERSION_MAJOR= ${arrSPLIT[0]} 
-  CURA_VERSION_MINOR= ${arrSPLIT[1]}
+  CURA_VERSION_MAJOR=${arrSPLIT[0]} 
+  CURA_VERSION_MINOR=${arrSPLIT[1]}
 fi
 
 echo 'BRANCH_NAME'
