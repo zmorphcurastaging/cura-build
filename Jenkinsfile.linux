@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('Clean environment files') { 
             steps {
-                  echo BRANCH
+                  echo "scmVars.GIT_BRANCH: ${scmVars.GIT_BRANCH}"
             }
         }
     }
