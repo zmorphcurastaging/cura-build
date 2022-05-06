@@ -20,7 +20,7 @@ else
 fi
 
 echo 'BRANCH_NAME'
-echo $1
+echo $BRANCH
 echo 'SPLIT'
 echo $SPLIT
 echo 'CURA_VERSION_MAJOR'
