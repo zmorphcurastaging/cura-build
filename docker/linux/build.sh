@@ -9,7 +9,6 @@
 
 # if branch name is diffrent than master, splitting numbers and set version and tag numbers
 BRANCH=$1
-BRANCH=master
 if [ $BRANCH == 'master' ]; then
   BRANCH_NAME=latest
   CURA_VERSION_MAJOR=$BRANCH_NAME
