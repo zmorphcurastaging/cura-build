@@ -20,6 +20,8 @@ fi
 
 echo 'BRANCH_NAME'
 echo $1
+echo 'SPLIT'
+echo $SPLIT
 echo 'CURA_VERSION_MAJOR'
 echo $CURA_VERSION_MAJOR
 echo 'CURA_VERSION_MINOR'
