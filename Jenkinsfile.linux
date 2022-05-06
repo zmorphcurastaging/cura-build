@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('Clean environment files') { 
             steps {
-                    sh 'sudo ./docker/linux/build.sh BRANCH_NAME'
+                    sh 'sudo ./docker/linux/build.sh $BRANCH_NAME'
             }
         }
     }
