@@ -7,6 +7,10 @@
 # the AppImage being created will not be signed.
 #
 
+# for testing purposes only (delete on prod)
+echo $1
+# for testing purposes only (delete on prod)
+<< 'COMMENT'
 set -e
 
 # Get where this script resides
@@ -101,3 +105,4 @@ docker run \
   /home/ultimaker/src/docker/linux/build_in_docker.sh
 
 cd "${__old_pwd}"
+COMMENT
