@@ -8,7 +8,8 @@
 #
 
 # for testing purposes only (delete on prod)
-echo $1
+BRANCH=$1
+BRANCH=master
 if [ $1 == 'master' ]; then
   BRANCH_NAME=latest
 else
