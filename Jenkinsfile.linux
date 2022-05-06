@@ -8,14 +8,6 @@ pipeline {
     }
 
     stages {
-        stage ('Clean environment files') { 
-            steps {
-                    sh 'sudo ./docker/linux/build.sh $BRANCH_NAME'
-            }
-        }
-    }
-/*
-    stages {
         
         stage ('Clean environment files') {            
 
@@ -37,7 +29,7 @@ pipeline {
 
         stage ('Run build') {
             steps {
-                sh 'sudo ./docker/linux/build.sh BRANCH_NAME'
+                sh 'sudo ./docker/linux/build.sh $BRANCH_NAME'
             }
         }
 
@@ -60,5 +52,5 @@ pipeline {
             archiveArtifacts artifacts: 'output/appimages/', fingerprint: true
         }
     }
-*/
+
 }
