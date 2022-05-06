@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('Clean environment files') { 
             steps {
-                  echo ${BRANCH}
+                  echo BRANCH
             }
         }
     }
