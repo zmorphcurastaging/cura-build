@@ -10,7 +10,7 @@
 # for testing purposes only (delete on prod)
 BRANCH=$1
 BRANCH=master
-if [ $1 == 'master' ]; then
+if [ $BRANCH == 'master' ]; then
   BRANCH_NAME=latest
 else
   SPLIT=$1
