@@ -11,6 +11,7 @@ pipeline {
         stage ('Clean environment files') { 
             steps {
                   echo branch_name
+            }
         }
     }
 /*
