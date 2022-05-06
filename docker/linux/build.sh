@@ -9,6 +9,21 @@
 
 # for testing purposes only (delete on prod)
 echo $1
+if [ $1 == 'master' ]; then
+  BRANCH_NAME = latest
+else
+  SPLIT=$1
+  arrSPLIT=(${SPLIT//./ })
+  CURA_VERSION_MAJOR = ${arrSPLIT[0]} 
+  CURA_VERSION_MINOR = ${arrSPLIT[1]}
+fi
+
+echo 'BRANCH_NAME'
+echo $BRANCH_NAME
+echo 'CURA_VERSION_MAJOR'
+echo $CURA_VERSION_MAJOR
+echo 'CURA_VERSION_MINOR'
+echo $CURA_VERSION_MINOR
 # for testing purposes only (delete on prod)
 << 'COMMENT'
 set -e
