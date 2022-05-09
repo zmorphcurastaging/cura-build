@@ -1,10 +1,13 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
 $branch=$args[0]
 $branch_array =$branch.Split(".")
+$fisrt_number= $branch_array[0]
+$second_number= $branch_array[1]
+
 write-host "first number"
-write-host $branch_array[0]
+write-host $fisrt_number
 write-host "second number"
-write-host $branch_array[1]
+write-host $second_number
 <#
 param (
 # Docker parameters
