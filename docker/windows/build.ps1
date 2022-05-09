@@ -1,5 +1,5 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
-$branch=$args[0]
+[string]$branch=$args[0]
 write-host $branch
 $branch_array = $branch.Split(".")
 write-host $branch_array
