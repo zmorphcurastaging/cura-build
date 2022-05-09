@@ -18,47 +18,30 @@ $second_number = $branch_array[1],
   [string]$LibCharonBranchOrTag = $branch,
 
 # Cura release parameters
-    [int32]$CuraVersionPatch  = "",
+  [int32]$CuraVersionPatch  = "",
   [string]$CuraVersionExtra = "",
-
   [string]$CuraBuildType = "",
   [string]$NoInstallPlugins = "",
-
-  [Parameter(Mandatory=$false)]
-    [string]$CloudApiRoot = "https://api.ultimaker.com",
-  [Parameter(Mandatory=$false)]
-    [string]$CloudAccountApiRoot = "https://account.ultimaker.com",
-  [Parameter(Mandatory=$false)]
-    [int32]$CloudApiVersion = 1,
-  [Parameter(Mandatory=$false)]
-    [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
-  [Parameter(Mandatory=$false)]
-    [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
-
+  [string]$CloudApiRoot = "https://api.ultimaker.com",
+  [string]$CloudAccountApiRoot = "https://account.ultimaker.com",
+  [int32]$CloudApiVersion = 1,
+  [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
+  [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
   [boolean]$EnableDebugMode = $true,
   [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
-
-  [Parameter(Mandatory=$false)]
-    [string]$CuraWindowsInstallerType = "EXE",
-
-  [string]$CuraMsiProductGuid = "",
-  [string]$CuraMsiUpgradeGuid = "",
-
-  [boolean]$IsInteractive = $true,
+  [string]$CuraWindowsInstallerType = "EXE",
+  [string]$CuraMsiProductGuid = "76d2b1f8-b19e-4e4c-9e35-f86fd105b899",
+  [string]$CuraMsiUpgradeGuid = "e752a0b4-7be3-4536-99c8-5a1f9119cb0c",
+  [boolean]$IsInteractive = $false,
   [boolean]$BindSshVolume = $false
 )
-Write-Host $branch
 if ($branch -eq "master") {
-  [Parameter(Mandatory=$false)]
-    [int32]$CuraVersionMajor = "master"
-  [Parameter(Mandatory=$false)]
-    [int32]$CuraVersionMinor = "master"
+  [int32]$CuraVersionMajor = "master"
+  [int32]$CuraVersionMinor = "master"
 }
 else {
-  [Parameter(Mandatory=$false)]
-    [int32]$CuraVersionMajor = $branch
-  [Parameter(Mandatory=$false)]
-    [int32]$CuraVersionMinor = $branch
+  [int32]$CuraVersionMajor = $branch
+  [int32]$CuraVersionMinor = $branch
 }
 
 $ErrorActionPreference = "Continue"
