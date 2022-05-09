@@ -21,9 +21,8 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'certificate_windows', variable: 'CERTIFICATE_WINDOWS')]) {
                     bat 'powershell "Copy-Item %CERTIFICATE_WINDOWS% -Destination ./docker/windows/certificate.pfx"'
-                    withEnv(["BRANCH_NAME=$BRANCH_NAME"]) {
-                            write-output "Server is $env:BRANCH_NAME"
-                       // bat 'powershell "./docker/windows/build.ps1 $BRANCH_NAME"'
+                    withEnv(["branch=$BRANCH_NAME"]) {
+                        bat 'powershell "./docker/windows/build.ps1 $branch"'
                     }
                     bat 'powershell "Remove-Item ./docker/windows/certificate.pfx"'
                 }
