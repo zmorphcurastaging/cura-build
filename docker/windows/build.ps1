@@ -18,7 +18,6 @@ $second_number = $branch_array[1],
   [string]$LibCharonBranchOrTag = $branch,
 
 # Cura release parameters
-  [Parameter(Mandatory=$true)]
     [int32]$CuraVersionPatch  = "",
   [string]$CuraVersionExtra = "",
 
