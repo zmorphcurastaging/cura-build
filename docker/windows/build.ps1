@@ -1,6 +1,7 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
 $servername=$args[0]
 write-host $servername
+<#
 param (
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
@@ -132,3 +133,4 @@ if ($BindSshVolume) {
   --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
   $DockerImage `
   powershell.exe -Command cmd /c "C:\cura-build-src\scripts\python3.8\windows\build_in_docker_vs2015.cmd"
+#>
