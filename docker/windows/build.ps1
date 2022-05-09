@@ -24,21 +24,21 @@ $second_number = $branch_array[1],
   [string]$CuraBuildType = "",
   [string]$NoInstallPlugins = "",
 
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [string]$CloudApiRoot = "https://api.ultimaker.com",
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [string]$CloudAccountApiRoot = "https://account.ultimaker.com",
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [int32]$CloudApiVersion = 1,
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [string]$MarketplaceRoot = "https://marketplace.ultimaker.com",
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [string]$DigitalFactoryURL = "https://digitalfactory.ultimaker.com",
 
   [boolean]$EnableDebugMode = $true,
   [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
 
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [string]$CuraWindowsInstallerType = "EXE",
 
   [string]$CuraMsiProductGuid = "",
@@ -49,15 +49,15 @@ $second_number = $branch_array[1],
 )
 Write-Host $branch
 if ($branch -eq "master") {
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [int32]$CuraVersionMajor = "master"
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [int32]$CuraVersionMinor = "master"
 }
 else {
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [int32]$CuraVersionMajor = $branch
-  [Parameter(Mandatory=$true)]
+  [Parameter(Mandatory=$false)]
     [int32]$CuraVersionMinor = $branch
 }
 
