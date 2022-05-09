@@ -1,5 +1,6 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
-echo $1
+$servername=$args[0]
+write-host $servername
 param (
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
