@@ -7,18 +7,6 @@ $branch_array = $branch.Split("."),
 $fisrt_number = $branch_array[0],
 $second_number = $branch_array[1],
 
-if ($branch -eq "master") {
-  [Parameter(Mandatory=$true)],
-    [int32]$CuraVersionMajor = "master",
-  [Parameter(Mandatory=$true)],
-    [int32]$CuraVersionMinor = "master",
-}
-else {
-  [Parameter(Mandatory=$true)],
-    [int32]$CuraVersionMajor = $branch,
-  [Parameter(Mandatory=$true)],
-    [int32]$CuraVersionMinor = $branch,
-}
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
 # Branch parameters
@@ -61,6 +49,18 @@ else {
   [boolean]$BindSshVolume = $false
 )
 
+if ($branch -eq "master") {
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMajor = "master"
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMinor = "master"
+}
+else {
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMajor = $branch
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMinor = $branch
+}
 
 $ErrorActionPreference = "Stop"
 
