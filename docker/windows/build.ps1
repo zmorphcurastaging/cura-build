@@ -1,33 +1,37 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
+
+# Branch name/number from github
 [string]$branch=$args[0]
-write-host $branch
 $branch_array = $branch.Split(".")
-write-host $branch_array
 $fisrt_number = $branch_array[0]
 $second_number = $branch_array[1]
 
-write-host "first number"
-write-host $fisrt_number
-write-host "second number"
-write-host $second_number
-<#
+if ($branch -eq "master") {
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMajor = "master"
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMinor = "master"
+}
+else {
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMajor = $branch
+  [Parameter(Mandatory=$true)]
+    [int32]$CuraVersionMinor = $branch
+}
+
 param (
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
 
 # Branch parameters
-  [string]$CuraBranchOrTag = "master",
-  [string]$UraniumBranchOrTag = "master",
-  [string]$CuraEngineBranchOrTag = "master",
-  [string]$CuraBinaryDataBranchOrTag = "master",
-  [string]$FdmMaterialsBranchOrTag = "master",
-  [string]$LibCharonBranchOrTag = "master",
+  [string]$CuraBranchOrTag = $branch,
+  [string]$UraniumBranchOrTag = $branch,
+  [string]$CuraEngineBranchOrTag = $branch,
+  [string]$CuraBinaryDataBranchOrTag = $branch,
+  [string]$FdmMaterialsBranchOrTag = $branch,
+  [string]$LibCharonBranchOrTag = $branch,
 
 # Cura release parameters
-  [Parameter(Mandatory=$true)]
-    [int32]$CuraVersionMajor,
-  [Parameter(Mandatory=$true)]
-    [int32]$CuraVersionMinor,
   [Parameter(Mandatory=$true)]
     [int32]$CuraVersionPatch,
   [string]$CuraVersionExtra = "",
@@ -142,4 +146,3 @@ if ($BindSshVolume) {
   --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
   $DockerImage `
   powershell.exe -Command cmd /c "C:\cura-build-src\scripts\python3.8\windows\build_in_docker_vs2015.cmd"
-#>
