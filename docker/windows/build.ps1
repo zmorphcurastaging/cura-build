@@ -1,6 +1,7 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
 
-# Branch name/number from github
+param (
+  # Branch name/number from github
 [string]$branch=$args[0]
 $branch_array = $branch.Split(".")
 $fisrt_number = $branch_array[0]
@@ -18,11 +19,8 @@ else {
   [Parameter(Mandatory=$true)]
     [int32]$CuraVersionMinor = $branch
 }
-
-param (
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
-
 # Branch parameters
   [string]$CuraBranchOrTag = $branch,
   [string]$UraniumBranchOrTag = $branch,
@@ -62,6 +60,7 @@ param (
   [boolean]$IsInteractive = $true,
   [boolean]$BindSshVolume = $false
 )
+
 
 $ErrorActionPreference = "Stop"
 
