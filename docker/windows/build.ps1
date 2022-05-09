@@ -2,7 +2,7 @@
 
 param (
   # Branch name/number from github
-[string]$branch=$args[0],
+#[string]$branch=$args[0],
 $branch_array = $branch.Split("."),
 $fisrt_number = $branch_array[0],
 $second_number = $branch_array[1],
