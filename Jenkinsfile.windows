@@ -2,7 +2,7 @@ pipeline {
     agent {label 'WSERVER1809'}
 
     environment{
-        //old_files = fileExists './windows-installers'
+        old_files = fileExists './windows-installers'
         //old_containers = sh (script: 'docker ps -a -f name=cura-build-environment | wc -l', , returnStdout:true).trim()
         BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
     }
