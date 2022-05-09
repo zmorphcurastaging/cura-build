@@ -19,7 +19,7 @@ $second_number = $branch_array[1],
 
 # Cura release parameters
   [Parameter(Mandatory=$true)]
-    [int32]$CuraVersionPatch,
+    [int32]$CuraVersionPatch  = "",
   [string]$CuraVersionExtra = "",
 
   [string]$CuraBuildType = "",
