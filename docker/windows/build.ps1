@@ -1,5 +1,5 @@
 # This script builds a Cura release using the cura-build-environment Windows docker image.
-
+$servername=$args[0]
 write-host $servername
 <#
 param (
