@@ -41,8 +41,8 @@ if ($branch -eq "master") {
   [int32]$CuraVersionMinor = "master"
 }
 else {
-  [int32]$CuraVersionMajor = $branch
-  [int32]$CuraVersionMinor = $branch
+  [int32]$CuraVersionMajor = $fisrt_number
+  [int32]$CuraVersionMinor = $second_number
 }
 
 $ErrorActionPreference = "Continue"
