@@ -30,6 +30,7 @@ $second_number = $branch_array[1],
   [boolean]$EnableDebugMode = $true,
   [boolean]$EnableCuraEngineExtraOptimizationFlags = $true,
   [string]$CuraWindowsInstallerType = "EXE",
+  [string]$PFXfile = "C:\cura-build-src\docker\windows\certificate.pfx",
   [string]$CuraMsiProductGuid = "76d2b1f8-b19e-4e4c-9e35-f86fd105b899",
   [string]$CuraMsiUpgradeGuid = "e752a0b4-7be3-4536-99c8-5a1f9119cb0c",
   [boolean]$IsInteractive = $false,
@@ -126,5 +127,6 @@ if ($BindSshVolume) {
   --env CPACK_GENERATOR=$CPACK_GENERATOR `
   --env CURA_MSI_PRODUCT_GUID=$CuraMsiProductGuid `
   --env CURA_MSI_UPGRADE_GUID=$CuraMsiUpgradeGuid `
+  --env WINDOWS_IDENTITIY_PFX_FILE=$PFXfile `
   $DockerImage `
-  powershell.exe -Command cmd /c "C:\cura-build-src\scripts\python3.8\windows\build_in_docker_vs2015.cmd"
+  powershell.exe -Command cmd /c "C:\cura-build-src\docker\windows\build_in_docker_vs2019.cmd"
