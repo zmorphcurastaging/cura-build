@@ -10,7 +10,7 @@ $second_number = $branch_array[1],
 # Docker parameters
   [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
 # Branch parameters
-  [string]$CuraBranchOrTag = $branch,
+  [string]$CuraBranchOrTag = "master",
   [string]$UraniumBranchOrTag = $branch,
   [string]$CuraEngineBranchOrTag = $branch,
   [string]$CuraBinaryDataBranchOrTag = $branch,
