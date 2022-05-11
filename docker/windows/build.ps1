@@ -18,7 +18,6 @@ $second_number = $branch_array[1],
   [string]$LibCharonBranchOrTag = $branch,
 
 # Cura release parameters
-  [int32]$CuraVersionPatch  = "",
   [string]$CuraVersionExtra = "",
   [string]$CuraBuildType = "",
   [string]$NoInstallPlugins = "",
@@ -37,12 +36,15 @@ $second_number = $branch_array[1],
   [boolean]$BindSshVolume = $false
 )
 if ($branch -eq "master") {
-  [int32]$CuraVersionMajor = "master"
-  [int32]$CuraVersionMinor = "master"
+  [int32]$CuraVersionMajor = "0"
+  [int32]$CuraVersionMinor = "0"
+  [int32]$CuraVersionPatch  = "0"
+
 }
 else {
   [int32]$CuraVersionMajor = $fisrt_number
   [int32]$CuraVersionMinor = $second_number
+  [int32]$CuraVersionPatch  = "1"
 }
 
 $ErrorActionPreference = "Continue"
