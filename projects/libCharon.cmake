@@ -1,5 +1,5 @@
 ExternalProject_Add(libCharon
-    GIT_REPOSITORY https://github.com/Ultimaker/libCharon
+    GIT_REPOSITORY https://github.com/zmorphcurastaging/libCharon
     GIT_TAG origin/${LIBCHARON_BRANCH_OR_TAG}
     GIT_SHALLOW 1
     STEP_TARGETS update
