@@ -106,10 +106,10 @@ executables = [
 ]
 
 setup(
-    name = "Ultimaker Cura",
+    name = "Zmorph Voxelizer",
     version = "@CURA_VERSION_MAJOR@.@CURA_VERSION_MINOR@.@CURA_VERSION_PATCH@",
     description = "3D Printing Software",
-    author = "Ultimaker B.V.",
+    author = "Zmorph",
     url = "http://software.ultimaker.com/",
     license = "GNU LESSER GENERAL PUBLIC LICENSE (LGPL)",
 

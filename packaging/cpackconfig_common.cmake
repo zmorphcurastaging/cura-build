@@ -23,8 +23,8 @@ else()
 endif()
 string(REPLACE " " "_" CPACK_FILE_NAME_NO_SPACES "${CPACK_PACKAGE_NAME}")
 
-set(CPACK_PACKAGE_VENDOR "Zmorph B.V.")
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/Ultimaker/Cura")
+set(CPACK_PACKAGE_VENDOR "Zmorph")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/zmorph/Cura")
 
 # MSI only supports version format like "x.x.x.x" where x is an integer from 0 to 65534
 set(CPACK_PACKAGE_VERSION_MAJOR ${CURA_VERSION_MAJOR})
@@ -44,7 +44,7 @@ endif()
 
 set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/packaging/cura.ico")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Zmorph Voxelizer - 3D Printing Software")
-set(CPACK_PACKAGE_CONTACT "Ruben Dulek <r.dulek@ultimaker.com>")
+set(CPACK_PACKAGE_CONTACT "")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/packaging/cura_license.txt")
 
 # Differentiate between a normal Cura installation and that of a different build type
