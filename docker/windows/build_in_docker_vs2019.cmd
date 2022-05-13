@@ -86,5 +86,5 @@ rem Copy all build data
 rem robocopy /e %cura_build_work_dir%\src %CURA_BUILD_OUTPUT_PATH%\build
 
 echo Copying the installer to the mounted volume ...
-copy /y "Ultimaker_Cura*.exe" %CURA_BUILD_OUTPUT_PATH%\output
-copy /y "Ultimaker_Cura*.msi" %CURA_BUILD_OUTPUT_PATH%\output
+copy /y "Zmorph_Voxelizer*.exe" %CURA_BUILD_OUTPUT_PATH%\output
+copy /y "Zmorph_Voxelizer*.msi" %CURA_BUILD_OUTPUT_PATH%\output
