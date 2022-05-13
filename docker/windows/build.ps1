@@ -8,7 +8,7 @@ $fisrt_number = $branch_array[0],
 $second_number = $branch_array[1],
 
 # Docker parameters
-  [string]$DockerImage = "ultimaker/cura-build-environment:win1809-latest",
+  [string]$DockerImage = "soniqsoft/cura-build-environment:win1809-latest",
 # Branch parameters
   [string]$CuraBranchOrTag = $branch,
   [string]$UraniumBranchOrTag = $branch,
