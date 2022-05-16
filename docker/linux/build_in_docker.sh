@@ -77,5 +77,5 @@ make
 make package
 
 # Copy the appimage to the output directory
-chmod a+x Zmorph_Voxelizer-*.AppImage
-cp Zmorph_Voxelizer-*.AppImage "${CURA_BUILD_OUTPUT_DIR}/appimages"
+chmod a+x Zmorph_Divid-*.AppImage
+cp Zmorph_Divid-*.AppImage "${CURA_BUILD_OUTPUT_DIR}/appimages"

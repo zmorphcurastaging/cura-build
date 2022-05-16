@@ -167,7 +167,7 @@ executables = [
 ]
 
 setup(
-    name = "Zmorph Voxelizer",
+    name = "Zmorph Divid",
     version = "@CURA_MAJOR_VERSION@.@CURA_MINOR_VERSION@.@CURA_PATCH_VERSION@",
     author = "Zmorph",
     url="http://software.ultimaker.com/",

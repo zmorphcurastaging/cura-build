@@ -244,10 +244,10 @@ executables = [
 ]
 
 setup(
-    name = "Zmorph Voxelizer",
+    name = "Zmorph Divid",
     version = "@CURA_VERSION_MAJOR@.@CURA_VERSION_MINOR@.@CURA_VERSION_PATCH@",
-    description = "Zmorph Voxelizer",
-    long_description = "Zmorph Voxelizer - 3D Printing Software",
+    description = "Zmorph Divid",
+    long_description = "Zmorph Divid - 3D Printing Software",
     author = "Zmorph",
     url = "http://software.ultimaker.com/",
     license = "GNU LESSER GENERAL PUBLIC LICENSE (LGPL)",

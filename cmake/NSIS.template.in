@@ -886,8 +886,8 @@ Section "Uninstall"
   IfSilent +6
   MessageBox MB_YESNO "Do you want to remove all your configuration files?" IDYES remove_user_dir_yes IDNO remove_user_dir_no
   remove_user_dir_yes:
-    RMDir /r "$UserAppDataDir\voxelizer\$CuraVersionDir"
-    RMDir /r "$UserLocalAppDataDir\voxelizer\$CuraVersionDir"
+    RMDir /r "$UserAppDataDir\Divid\$CuraVersionDir"
+    RMDir /r "$UserLocalAppDataDir\Divid\$CuraVersionDir"
   remove_user_dir_no:
 
   ReadRegStr $START_MENU SHCTX \
@@ -932,8 +932,8 @@ Section "Uninstall"
   ${UnRegisterExtension} ".g"     "@CPACK_PACKAGE_NAME_NO_WHITESPACES@.g.@CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@"
 
   ;Remove executable from MuiCache
-  DeleteRegKey HKCR "Local Settings\Software\Microsoft\Windows\Shell\MuiCache\$INSTDIR\Voxelizer.exe.ApplicationCompany"
-  DeleteRegKey HKCR "Local Settings\Software\Microsoft\Windows\Shell\MuiCache\$INSTDIR\Voxelizer.exe.FriendlyAppName"
+  DeleteRegKey HKCR "Local Settings\Software\Microsoft\Windows\Shell\MuiCache\$INSTDIR\Divid.exe.ApplicationCompany"
+  DeleteRegKey HKCR "Local Settings\Software\Microsoft\Windows\Shell\MuiCache\$INSTDIR\Divid.exe.FriendlyAppName"
 
   ;Remove the uninstaller itself.
   Delete "$INSTDIR\Uninstall.exe"
@@ -1007,7 +1007,7 @@ SectionEnd
 ; Needed to remove " from the old uninstaller paths
 !include "CharStrStrip.nsh"
 
-; Uninstall a previous version of Voxelizer.
+; Uninstall a previous version of Divid.
 ; Parameters are:
 ; _NAME: Display name
 ; _VERSION: Registry entry to get the Uninstall executable from.
@@ -1050,40 +1050,40 @@ Function .onInit
   StrCmp "@CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL@" "ON" 0 inst
   IfSilent inst 0
 
-  !insertmacro uninstallVersion "Voxelizer 14.12" "Voxelizer_14.12.1" "14121"
-  !insertmacro uninstallVersion "Voxelizer 15.04" "Voxelizer_15.04.4" "15044"
-  !insertmacro uninstallVersion "Voxelizer 15.04" "Voxelizer_15.04.5" "15045"
-  !insertmacro uninstallVersion "Voxelizer 15.04" "Voxelizer_15.04.6" "15046"
-  !insertmacro uninstallVersion "Voxelizer 2.1" "Voxelizer 2.1" "21"
-  !insertmacro uninstallVersion "Voxelizer 2.3" "Voxelizer 2.3" "23"
-  !insertmacro uninstallVersion "Voxelizer 2.4" "Voxelizer 2.4" "24"
-  !insertmacro uninstallVersion "Voxelizer 2.5" "Voxelizer 2.5" "25"
-  !insertmacro uninstallVersion "Voxelizer 2.6" "Voxelizer 2.6" "26"
-  !insertmacro uninstallVersion "Voxelizer 2.7" "Voxelizer 2.7" "27"
-  !insertmacro uninstallVersion "Voxelizer 3.0" "Voxelizer 3.0" "30"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.0" "Zmorph Voxelizer 3.0" "U30" ; Name change during 3.0 release
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.1" "Zmorph Voxelizer 3.1" "U31"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.2" "Zmorph Voxelizer 3.2" "U32"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.3" "Zmorph Voxelizer 3.3" "U33"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.4" "Zmorph Voxelizer 3.4" "U34"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.5" "Zmorph Voxelizer 3.5" "U35"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 3.6" "Zmorph Voxelizer 3.6" "U36"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.0" "Zmorph Voxelizer 4.0" "U40"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.1" "Zmorph Voxelizer 4.1" "U41"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.2" "Zmorph Voxelizer 4.2" "U42"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.3" "Zmorph Voxelizer 4.3" "U43"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.4" "Zmorph Voxelizer 4.4" "U44"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.5" "Zmorph Voxelizer 4.5" "U45"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.6" "Zmorph Voxelizer 4.6" "U46"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.7" "Zmorph Voxelizer 4.7" "U47"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.8.0" "Zmorph Voxelizer 4.8.0" "U480"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.9.0" "Zmorph Voxelizer 4.9.0" "U490"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.9.1" "Zmorph Voxelizer 4.9.1" "U491"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.10.0" "Zmorph Voxelizer 4.10.0" "U410"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.11.0" "Zmorph Voxelizer 4.11.0" "U411"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.12.0" "Zmorph Voxelizer 4.12.0" "U412"
-  !insertmacro uninstallVersion "Zmorph Voxelizer 4.12.1" "Zmorph Voxelizer 4.12.1" "U4121"
-  !insertmacro uninstallVersion "Zmorph Voxelizer @CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@.@CPACK_PACKAGE_VERSION_PATCH@" "@CPACK_PACKAGE_INSTALL_REGISTRY_KEY@" "latest"
+  !insertmacro uninstallVersion "Divid 14.12" "Divid_14.12.1" "14121"
+  !insertmacro uninstallVersion "Divid 15.04" "Divid_15.04.4" "15044"
+  !insertmacro uninstallVersion "Divid 15.04" "Divid_15.04.5" "15045"
+  !insertmacro uninstallVersion "Divid 15.04" "Divid_15.04.6" "15046"
+  !insertmacro uninstallVersion "Divid 2.1" "Divid 2.1" "21"
+  !insertmacro uninstallVersion "Divid 2.3" "Divid 2.3" "23"
+  !insertmacro uninstallVersion "Divid 2.4" "Divid 2.4" "24"
+  !insertmacro uninstallVersion "Divid 2.5" "Divid 2.5" "25"
+  !insertmacro uninstallVersion "Divid 2.6" "Divid 2.6" "26"
+  !insertmacro uninstallVersion "Divid 2.7" "Divid 2.7" "27"
+  !insertmacro uninstallVersion "Divid 3.0" "Divid 3.0" "30"
+  !insertmacro uninstallVersion "Zmorph Divid 3.0" "Zmorph Divid 3.0" "U30" ; Name change during 3.0 release
+  !insertmacro uninstallVersion "Zmorph Divid 3.1" "Zmorph Divid 3.1" "U31"
+  !insertmacro uninstallVersion "Zmorph Divid 3.2" "Zmorph Divid 3.2" "U32"
+  !insertmacro uninstallVersion "Zmorph Divid 3.3" "Zmorph Divid 3.3" "U33"
+  !insertmacro uninstallVersion "Zmorph Divid 3.4" "Zmorph Divid 3.4" "U34"
+  !insertmacro uninstallVersion "Zmorph Divid 3.5" "Zmorph Divid 3.5" "U35"
+  !insertmacro uninstallVersion "Zmorph Divid 3.6" "Zmorph Divid 3.6" "U36"
+  !insertmacro uninstallVersion "Zmorph Divid 4.0" "Zmorph Divid 4.0" "U40"
+  !insertmacro uninstallVersion "Zmorph Divid 4.1" "Zmorph Divid 4.1" "U41"
+  !insertmacro uninstallVersion "Zmorph Divid 4.2" "Zmorph Divid 4.2" "U42"
+  !insertmacro uninstallVersion "Zmorph Divid 4.3" "Zmorph Divid 4.3" "U43"
+  !insertmacro uninstallVersion "Zmorph Divid 4.4" "Zmorph Divid 4.4" "U44"
+  !insertmacro uninstallVersion "Zmorph Divid 4.5" "Zmorph Divid 4.5" "U45"
+  !insertmacro uninstallVersion "Zmorph Divid 4.6" "Zmorph Divid 4.6" "U46"
+  !insertmacro uninstallVersion "Zmorph Divid 4.7" "Zmorph Divid 4.7" "U47"
+  !insertmacro uninstallVersion "Zmorph Divid 4.8.0" "Zmorph Divid 4.8.0" "U480"
+  !insertmacro uninstallVersion "Zmorph Divid 4.9.0" "Zmorph Divid 4.9.0" "U490"
+  !insertmacro uninstallVersion "Zmorph Divid 4.9.1" "Zmorph Divid 4.9.1" "U491"
+  !insertmacro uninstallVersion "Zmorph Divid 4.10.0" "Zmorph Divid 4.10.0" "U410"
+  !insertmacro uninstallVersion "Zmorph Divid 4.11.0" "Zmorph Divid 4.11.0" "U411"
+  !insertmacro uninstallVersion "Zmorph Divid 4.12.0" "Zmorph Divid 4.12.0" "U412"
+  !insertmacro uninstallVersion "Zmorph Divid 4.12.1" "Zmorph Divid 4.12.1" "U4121"
+  !insertmacro uninstallVersion "Zmorph Divid @CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@.@CPACK_PACKAGE_VERSION_PATCH@" "@CPACK_PACKAGE_INSTALL_REGISTRY_KEY@" "latest"
 inst:
 
   ; Reads components status for registry
