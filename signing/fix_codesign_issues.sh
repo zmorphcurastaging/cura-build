@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd "Ultimaker Cura.app/Contents/MacOS"
+pushd "Zmorph Divid.app/Contents/MacOS"
 
 dirs=`find . -type d -depth 1`
 
