@@ -31,13 +31,13 @@ add_custom_command(
 
 add_custom_command(
     TARGET packaging PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy cura-icon_256x256.png ${PACKAGE_DIR}/cura-icon.png
+    COMMAND ${CMAKE_COMMAND} -E copy divid-icon_256x256.png ${PACKAGE_DIR}/divid-icon.png
     COMMAND mkdir -p ${PACKAGE_DIR}/usr/share/icons/hicolor/64x64/apps/
-    COMMAND ${CMAKE_COMMAND} -E copy cura-icon_64x64.png ${PACKAGE_DIR}/usr/share/icons/hicolor/64x64/apps/cura-icon.png
+    COMMAND ${CMAKE_COMMAND} -E copy divid-icon_64x64.png ${PACKAGE_DIR}/usr/share/icons/hicolor/64x64/apps/divid-icon.png
     COMMAND mkdir -p ${PACKAGE_DIR}/usr/share/icons/hicolor/128x128/apps/
-    COMMAND ${CMAKE_COMMAND} -E copy cura-icon_128x128.png ${PACKAGE_DIR}/usr/share/icons/hicolor/128x128/apps/cura-icon.png
+    COMMAND ${CMAKE_COMMAND} -E copy divid-icon_128x128.png ${PACKAGE_DIR}/usr/share/icons/hicolor/128x128/apps/divid-icon.png
     COMMAND mkdir -p ${PACKAGE_DIR}/usr/share/icons/hicolor/256x256/apps/
-    COMMAND ${CMAKE_COMMAND} -E copy cura-icon_256x256.png ${PACKAGE_DIR}/usr/share/icons/hicolor/256x256/apps/cura-icon.png
+    COMMAND ${CMAKE_COMMAND} -E copy divid-icon_256x256.png ${PACKAGE_DIR}/usr/share/icons/hicolor/256x256/apps/divid-icon.png
     COMMENT "Copying icon files ..."
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
 )
