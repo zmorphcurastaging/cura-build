@@ -234,12 +234,12 @@ executables = [
     Executable(script="@EXTERNALPROJECT_INSTALL_PREFIX@/bin/cura_app.py",
                base="Win32GUI",
                targetName = "Cura.exe",
-               icon="@CMAKE_SOURCE_DIR@/packaging/divid.ico"
+               icon="@CMAKE_SOURCE_DIR@/packaging/cura.ico"
                ),
     Executable(script="@EXTERNALPROJECT_INSTALL_PREFIX@/bin/cura_app.py",
                base="Console",
                targetName = "CuraCLI.exe",
-               icon="@CMAKE_SOURCE_DIR@/packaging/divid.ico"
+               icon="@CMAKE_SOURCE_DIR@/packaging/cura.ico"
                ),
 ]
 
