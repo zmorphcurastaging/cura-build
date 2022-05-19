@@ -42,7 +42,7 @@ else()
     set(CPACK_PACKAGE_NAME "Zmorph Divid ${CURA_BUILDTYPE} ${CURA_FULL_VERSION}")
 endif()
 
-set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/packaging/cura.ico")
+set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/packaging/divid.ico")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Zmorph Divid - 3D Printing Software")
 set(CPACK_PACKAGE_CONTACT "")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/packaging/cura_license.txt")
